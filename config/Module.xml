@@ -1,111 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container type="CT1" id ="PNLMVP">
 	<modulelist>		
-		<module
-			name="NLP Component"
-			id="pnl.nlp.comp"
-			version="1.0.0"
-			provider-name="PNL"
-			class="com.pnl.component.nlp.NLPComponent">
-	
-	 		<requires>
-		 		<jarFolder location="d://storageJar" />
-				<import module="baseComponent.jar"/>
-			</requires>
-		    <runtime>
-				<library name="testworld.jar"/>	
-		    </runtime>
-		    <maintenance>
-		    </maintenance>
-		</module>
-		<module
-			name="SocialMedia Component"
-			id="pnl.socialmedia.comp"
-			version="1.0.0"
-			provider-name="PNL"
-			class="com.pnl.component.socialmedia.SocialMediaComponent">
-	
-	 		<requires>
-		 		<jarFolder location="d://storageJar" />
-				<import module="baseComponent.jar"/>
-			</requires>
-		    <runtime>
-				<library name="testworld.jar"/>	
-		    </runtime>
-		    <maintenance>
-		    </maintenance>
-		</module>
-		<module
-			name="Search Component"
-			id="pnl.search.comp"
-			version="1.0.0"
-			provider-name="PNL"
-			class="com.pnl.component.search.SearchComponent">
-	
-	 		<requires>
-		 		<jarFolder location="d://storageJar" />
-				<import module="baseComponent.jar"/>
-			</requires>
-		    <runtime>
-				<library name="testworld.jar"/>	
-		    </runtime>
-		    <maintenance>
-		    </maintenance>
-		</module>
-		<module
-
-			name="Crawler Component"
-
-			id="pnl.crawler.comp"
-
-			version="1.0.0"
-
-			provider-name="PNL"
-
-			class="com.pnl.component.crawler.CrawlerComponent">
-	
-	 		<requires>
-		 		<jarFolder location="d://storageJar" />
-				<import module="baseComponent.jar"/>
-			</requires>
-		    <runtime>
-				<library name="testworld.jar"/>	
-		    </runtime>
-		    <maintenance>
-		    </maintenance>
-		</module>
-		<module
-			name="BigData Component"
-			id="pnl.bigdata.comp"
-			version="1.0.0"
-			provider-name="PNL"
-			class="com.pnl.component.bigdata.BigDataComponent">
-	 		<requires>
-		 		<jarFolder location="d://storageJar" />
-				<import module="baseComponent.jar"/>
-			</requires>
-		    <runtime>
-				<library name="testworld.jar"/>	
-		    </runtime>
-		    <maintenance>
-		    </maintenance>
-		</module>
-		<module
-			name="Solr Component"
-			id="pnl.solr.comp"
-			version="1.0.0"
-			provider-name="PNL"
-			class="com.pnl.component.solr.SolrComponent">
-	 		<requires>
-		 		<jarFolder location="d://storageJar" />
-				<import module="baseComponent.jar"/>
-			</requires>
-		    <runtime>
-				<library name="testworld.jar"/>	
-		    </runtime>
-		    <maintenance>
-		    </maintenance>
-		</module>
+		
 		<module
 			name="Rules Component"
 			id="ruleComponent"
@@ -147,7 +43,7 @@
 		
 		<module
 			name="Database Component"
-			id="dbCompnent"
+			id="dbComponent"
 			version="1.0"
 			provider-name="Oxyent"
 			class="com.oxymedical.component.db.DBComponent">
