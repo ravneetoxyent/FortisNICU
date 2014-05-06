@@ -131,8 +131,8 @@
                                                 <toolbarbutton
                                                     label="Doctor Examining" />
                                                     <combobox id = "doctorExamining"> 	
-                                                    	<comboitem label="D1"/>
-                                                    	<comboitem label="D2"/>
+                                       					<comboitem id= "doctorOne" label="D1"/>
+                                                    	<comboitem id= "doctorTwo" label="D2"/>>
                                                     	<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="DOCTOR_EXAMINING: String"/>
    		 												</DataMappings>
