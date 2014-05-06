@@ -134,8 +134,8 @@
                                                     label="Doctor Examining" />
                                                     <combobox id = "doctorExamining">
                                                     	
-                                                    	<comboitem label="D1"/>
-                                                    	<comboitem label="D2"/>
+                                                    	<comboitem id= "doctorOne" label="D1"/>
+                                                    	<comboitem id= "doctorTwo" label="D2"/>
 
                                                     </combobox>
                                                     
@@ -190,57 +190,57 @@
             <row>
             	<label id = "EyeReflex" value="Eyes Red Reflex" />
                <radiogroup id ="EYE_RG" onCheck="EyeReflex.value = self.selectedItem.value">
-              		  <radio value = "Left"/>
-              		  <radio value = "Right" />
+					<radio id = "LeftEye"  />
+                	 <radio id = "RightEye"  />
                 </radiogroup>
                 </row>
                  <row>
                 <label id = "Ears" value="Ears" />
                  <radiogroup id ="Ear_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio id = "LeftEar"  />
+                	<radio id = "RightEar"  />
                 </radiogroup>
             </row>
             <row>
                 <label id="Hands" value="Hands" />
                <radiogroup id ="Hands_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio id = "LeftHands"  />
+                	<radio id = "RightHands"  /> 
                 </radiogroup>
             </row>
             <row>
                 <label id = "Upper_limbs" value="Upper limbs" />
                  <radiogroup id ="Upper_limbs_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio id = "LeftUpperLimbs"  />
+                	<radio id = "RightUpperLimbs"  />
                 </radiogroup>
             </row>
             <row>
                 <label id = "Testis" value="Testis" />
                  <radiogroup id ="Testis_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio value = "LeftTestis"  />
+                	<radio value = "RightTestis"  />
                 </radiogroup>
             </row>
             <row>
                 <label id = "Hips" value="Hips" />
                 <radiogroup id ="Hips_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio id = "LeftHips"  />
+                	<radio id = "RightHips"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Legs" value="Legs" />
                  <radiogroup id ="Legs_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio id = "LeftLegs"  />
+                	<radio id = "RightLegs"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Feet" value="Feet" />
                  <radiogroup id ="Feet_RG" >
-                	<radio value = "Left"  />
-                	<radio value = "Right"  />
+                	<radio id = "LeftFeet"  />
+                	<radio id = "RightFeet"  />
                 </radiogroup>
             </row>
                 </rows>
@@ -257,58 +257,58 @@
             <row>
                 <label id ="Palate" value="Palate" />
                  <radiogroup id ="Palate_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalPalate"  />
+                	<radio id = "AbnormalPalate"  />
                 </radiogroup>
                 <radio />
                 </row>
                  <row>
                 <label id ="Tone" value="Tone" />
        			 <radiogroup id ="Tone_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalTone"  />
+                	<radio id = "AbnormalTone"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Mouth" value="Mouth" />
                  <radiogroup id ="Mouth_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalMouth"  />
+                	<radio id = "AbnormalMouth"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Heart" value="Heart" />
                   <radiogroup id ="Heart_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalHeart"  />
+                	<radio id = "AbnormalHeart"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Liver" value="Liver" />
                   <radiogroup id ="Liver_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalLiver"  />
+                	<radio id = "AbnormalLiver"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Spleen" value="Spleen" />
                  <radiogroup id ="Spleen_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalSpleen"  />
+                	<radio id = "AbnormalSpleen"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Genitalia" value="Genitalia" />
                   <radiogroup id ="Genitalia_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                	<radio id = "NormalGenitalia"  />
+                	<radio id = "AbnormalGenitalia"  />
                 </radiogroup>
             </row>
             <row>
                 <label id ="Spine" value="Spine" />
                   <radiogroup id ="Spine_RG" >
-                	<radio value = "Normal"  />
-                	<radio value = "Abnormal"  />
+                    	<radio id = "NormalSpine"  />
+                	<radio id = "AbnormalSpine"  />
                 </radiogroup>
             </row>
                 </rows>
