@@ -1,0 +1,249 @@
+<zk>
+<window  style="background: #F7F7F7" height="1024px">
+ <div style="margin:auto; width:1024px">
+        <borderlayout sclass="complex-layout" height="30px">
+            <north size="90px" border="0" style=" background:#F7F7F7;">
+            <image src="images/fortis.png"/>
+            </north>
+            </borderlayout>
+            </div>
+<div align="center" style="margin:90px">
+<borderlayout height="400px" width="1200px">
+    
+    <center>
+    
+        <borderlayout >
+        
+         <north size="90px" border="0" height="8%" margins="2,3,0,0" style=" background: green;">
+                        <label value="Nursing Progress Notes -> Hourly Chart"  style="font-size:20px; background: green; padding-left: 10px;" />
+                    </north>
+         <center border="0" margins="0,3,3,3" style=" overflow:auto; background:#F7F7F7">
+                       <panel> 
+                            <panelchildren >
+                                            <div align="left" style=" background: #F7F7F7">
+                                                
+                                                <space bar="false" spacing="58px" />
+                                                <toolbarbutton 
+                                                    label="Name" />
+                                                    <space bar="false" spacing="58px" />
+                                                    <textbox  />
+                                                     <space bar="false" spacing="58px" />
+                                                    <toolbarbutton
+                                                    label="From Birth Weight" />
+                                                    <space bar="false" spacing="58px" />
+                                                    <textbox />
+                                                     </div>
+                         
+                                                     <div align="left"  style=" background: #F7F7F7">
+                                                     <space bar="false" spacing="58px" />                            
+                                                    <toolbarbutton
+                                                    label="UID" />
+                                                    <space bar="false" spacing="70px" />
+                                                    <textbox />
+                                                    <space bar="false" spacing="58px" />
+                                                    <toolbarbutton
+                                                    label="From Yesterday Weight" />
+                                                    <space bar="false" spacing="31px" />
+                                                    <textbox />
+                                            </div>
+                                        
+                                            <div align="left"  style=" background: #F7F7F7">
+                                            <space bar="false" spacing="58px" />
+                                                 <toolbarbutton
+                                                    label="Birth Wt." />
+                                                    <space bar="false" spacing="45px" />
+                                                    <textbox />
+                                                    <space bar="false" spacing="58px" />
+                                                     <toolbarbutton
+                                                    label="Urine" />
+                                                    <space bar="false" spacing="124px" />
+                                                    <textbox />
+                                            </div>
+                                       
+                                            <div align="left"  style=" background: #F7F7F7">
+                                            <space bar="false" spacing="58px" />
+                                                <toolbarbutton
+                                                    label="Yesterday Wt." />
+                                                    <space bar="false" spacing="18px" />
+                                                     <textbox />
+                                            </div>
+                                              <div align="left"  style=" background: #F7F7F7">
+                                              <space bar="false" spacing="58px" />
+                                                <toolbarbutton
+                                                    label="Present Wt." />
+                                                    <space bar="false" spacing="30px" />
+                                                    <textbox />
+                                                    <space bar="false" spacing="58px" />
+                                            </div>
+                       
+          <div style=" background: #F7F7F7">             
+                 <toolbar align="center" >     
+                 <hlayout>
+              <grid width="1200px">         
+             <columns>
+            <column hflex="1">Time</column>
+            <column hflex="1">Method</column>
+            <column hflex="1">Feed Type</column>
+            <column hflex="1">Vol.</column>
+            <column hflex="1">Total</column>
+            <column hflex="1">I.V.Fluids</column>
+            <column hflex="1">I.V/Hr </column>
+            <column hflex="1">AA/Hr</column>
+            <column hflex="1">Lipid/Hr</column>
+            <column hflex="1">I.V. Total</column>
+            <column hflex="1">Aspire/Vomit(ml)</column>
+            <column hflex="1">Urine(ml)</column>
+            <column hflex="1">BO</column>
+            <column hflex="1">SaO2%</column>
+            <column hflex="1">HR</column>
+            <column hflex="1">RR</column>
+            <column hflex="1">B.P</column>
+            <column hflex="1">FIO2(%)</column>
+            <column hflex="1">Temp Axilla(C)</column>
+            <column hflex="1">Temp Inc/Bed(C)</column>
+            <column hflex="1">CPAP</column>
+           
+        </columns>
+        <rows sclass="narrow">
+            <row>
+             <label value="9" />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+                
+                </row>
+                <row>
+            <label value="10" />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+                
+                </row>
+            <row>
+            <label value="11" />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+                
+                </row>
+            <row>
+            <label value="12" />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+                
+                </row>
+            <row>
+            <label value="Total" />
+            <label value=" " />
+            <label value=" " />
+            <textbox />
+            <textbox />
+            <label value=" " />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <label value=" " />
+            <textbox />
+            <textbox />
+            <textbox />
+            <textbox />
+            <label value=" " />
+            <textbox />
+            <textbox />
+            <label value=" " />
+            <textbox />
+                
+                </row>
+                </rows>
+            
+                </grid>
+      </hlayout>
+      </toolbar>
+     <button label="Submit" onClick="" />
+                       
+                    <button label="Cancel" onClick="" />   
+                                           
+                                           </div> 
+        </panelchildren>
+        </panel>
+            </center>
+        </borderlayout>
+    </center>
+    
+</borderlayout>
+
+</div>
+
+</window>
+</zk>

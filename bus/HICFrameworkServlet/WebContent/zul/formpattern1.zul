@@ -1,0 +1,11 @@
+<zk>
+<style src="/css/formpattern1.css"/>
+<style src="/css/__common.css"/>
+<zscript src="/library/uilibrary.zs"/>
+<?init zscript="/library/init.zs"?>
+<?page id="formpattern1"?>
+ <window class="formpattern1" title="" width="100%" draggable="false" height="730px" id="formpattern1" visible="true" droppable="false">
+  
+</window>
+</zk>
+

@@ -1,0 +1,562 @@
+<zk>
+<html><![CDATA[
+<head>
+<title>Admission Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="images/BrightSide.css" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="jsDatePick_ltr.min.css" />
+<script type="text/javascript" src="jsDatePick.min.1.3.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />	
+<link rel="stylesheet" type="text/css" href="jquery.ptTimeSelect.css" />
+<script type="text/javascript" src="jquery.ptTimeSelect.js"></script>		
+
+
+    <script type="text/javascript">
+var k = jQuery.noConflict();
+        k(window).load(function(){
+            
+            for(var p=1; p&lt;=1000; p++)
+            {
+            k('#sample'+ p).ptTimeSelect({
+            }); 
+            }
+        }); 
+    </script>
+
+
+
+<script type="text/javascript">
+	window.onload = function(){
+		new JsDatePick({
+			useMode:2,
+			target:"inputField",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField1",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField2",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField3",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField4",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField5",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField6",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField7",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField8",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField9",
+			dateFormat:"%d-%M-%Y"
+		});
+		new JsDatePick({
+			useMode:2,
+			target:"inputField10",
+			dateFormat:"%d-%M-%Y"
+		});																				
+	};
+</script>
+<script>
+var j = jQuery.noConflict();
+        j(window).load(function(){
+ j("#insert-more").click(function () {
+     j("#mytable").each(function () {
+         var tds = '<tr>';
+         jQuery.each(j('tr:last td', this), function () {
+             tds += '<td>' + j(this).html() + '</td>';
+         });
+         tds += '</tr>';
+         if (j('tbody', this).length > 0) {
+             j('tbody', this).append(tds);
+         } else {
+             j(this).append(tds);
+         }
+     });
+});
+
+    j("#blue").click(function()
+	{
+		j('#main').css('background', '#FAEBD7');
+	});
+    j("#pink").click(function()
+	{
+		j('#main').css('background', '#E0FFFF');
+	});	
+    j("#result_yes").click(function()
+	{
+		j('#display_result').css('display', 'block');
+	});	
+    j("#result_no").click(function()
+	{
+		j('#display_result').css('display', 'none');
+	});			
+    j("#result_yes1").click(function()
+	{
+		j('#display_result1').css('display', 'block');
+	});	
+    j("#result_no1").click(function()
+	{
+		j('#display_result1').css('display', 'none');
+	});
+    j("#result_not").click(function()
+	{
+		j('#display_result1').css('display', 'none');
+	});					
+	    j("#resultlmp").click(function()
+	{
+		j('#display_sonogram').css('display', 'none');
+	});
+    j("#resultsonogram").click(function()
+	{
+		j('#display_sonogram').css('display', 'block');
+	});											
+    j("#resultconception").click(function()
+	{
+		j('#display_sonogram').css('display', 'none');
+	});												
+	});
+</script>
+
+<script>
+function gestation_count()
+{
+var lmp = document.getElementById('resultlmp').checked;
+var conception = document.getElementById('resultconception').checked;
+var sonogram = document.getElementById('resultsonogram').checked;
+if(lmp)
+{
+var a=document.getElementById('inputField1').value;
+var month=new Array();
+month[0]="JAN";
+month[1]="FEB";
+month[2]="MAR";
+month[3]="APR";
+month[4]="MAY";
+month[5]="JUN";
+month[6]="JUL";
+month[7]="AUG";
+month[8]="SEP";
+month[9]="OCT";
+month[10]="NOV";
+month[11]="DEC";
+var d = (new Date(a));
+d.setDate(d.getDate()+280);
+
+document.getElementById('edd').value=d.getDate() + "-" + month[d.getMonth()] + "-" + d.getFullYear();
+$('#gestation').focus();
+
+
+var birth =document.getElementById('inputField').value;
+var b= new Date(birth);
+
+var e =new Date(d);
+var diffmilli = e-b;
+var diffdays = (280-(((((diffmilli / 1000)/60)/60)/24)));
+var diffweeks =parseInt(diffdays/7);
+var diff = diffdays - (diffweeks*7);
+document.getElementById('gestation').value=diffweeks+' + '+diff;
+}
+
+else if(conception)
+{
+var c=document.getElementById('inputField2').value;
+var month=new Array();
+month[0]="JAN";
+month[1]="FEB";
+month[2]="MAR";
+month[3]="APR";
+month[4]="MAY";
+month[5]="JUN";
+month[6]="JUL";
+month[7]="AUG";
+month[8]="SEP";
+month[9]="OCT";
+month[10]="NOV";
+month[11]="DEC";
+var f = (new Date(c));
+f.setDate(f.getDate()+268);
+document.getElementById('edd').value=f.getDate() + "-" + month[f.getMonth()] + "-" + f.getFullYear();
+$('#gestation').focus();
+
+var birth =document.getElementById('inputField').value;
+var b= new Date(birth);
+
+var e =new Date(f);
+var diffmilli = e-b;
+var diffdays = (280-(((((diffmilli / 1000)/60)/60)/24)));
+var diffweeks =parseInt(diffdays/7);
+var diff = diffdays - (diffweeks*7);
+document.getElementById('gestation').value=diffweeks+' + '+diff;
+}
+
+else if(sonogram)
+{
+var c=document.getElementById('inputField3').value;
+var month=new Array();
+month[0]="JAN";
+month[1]="FEB";
+month[2]="MAR";
+month[3]="APR";
+month[4]="MAY";
+month[5]="JUN";
+month[6]="JUL";
+month[7]="AUG";
+month[8]="SEP";
+month[9]="OCT";
+month[10]="NOV";
+month[11]="DEC";
+var f = (new Date(c));
+var gweek= document.getElementById('week').value;
+var gdays= document.getElementById('days').value;
+
+var gweek = parseInt(gweek * 7);
+var gtotaldays = parseInt(gweek) + parseInt(gdays);
+var addtotal = parseInt(280-gtotaldays);
+
+f.setDate(f.getDate()+ addtotal);
+document.getElementById('edd').value=f.getDate() + "-" + month[f.getMonth()] + "-" + f.getFullYear();
+$('#gestation').focus();
+
+var birth =document.getElementById('inputField').value;
+var b= new Date(birth);
+
+var e =new Date(f);
+var diffmilli = e-b;
+var diffdays = (280-(((((diffmilli / 1000)/60)/60)/24)));
+var diffweeks =parseInt(diffdays/7);
+var diff = diffdays - (diffweeks*7);
+document.getElementById('gestation').value=diffweeks+' + '+diff;
+}
+else
+{
+alert ("Please check atleast one radio button");
+}
+}
+</script>
+
+<style>
+#display_result{display:none;}
+#display_result1{display:none;}
+</style>
+<script>
+var l = jQuery.noConflict();
+l(window).load(function ()
+	{
+		l('.drug').click(function()
+	{
+		l('.show').css('display', 'block');
+	});
+
+});
+</script>
+<style>
+li.drug ul.show{display:none;}
+#display_sonogram{display:none;}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="header">
+    <h1 id="logo"><a href="menu.zul" class="logo"><img src="images/fortis.png" /></a></h1>
+   </div>
+  <div id="content-wrap">
+    <div id="sidebar" >
+      <h1>Admission &amp; Examination</h1>
+      <ul class="sidemenu">
+        <li><a href="admission.zul" class="active">Admission Form</a></li>
+        <li><a href="initial_examination.zul">Initial Examination</a></li>
+      </ul>
+	  <h1>Nursing Progress Notes</h1>
+      <ul class="sidemenu">
+        <li><a href="nursing_progress_notes.zul">Nursing Progress Notes</a></li>
+	</ul>
+      <h1>Doctor's Progress Notes</h1>
+      <ul class="sidemenu">
+        <li><a href="progress_notes.zul">Doctor's Progress Notes</a></li>
+<li><a href="growth_chart.zul">Growth Chart</a></li>
+	</ul>	  	  	
+		  	  
+      <h1>Medication</h1>
+      <ul class="sidemenu">
+        <li class="drug"><a href="#" class="drug">Doctor's Prescription</a>
+        <ul class="show">
+        <li><a href="diamorphine_infusion.zul">Infusion List</a></li>
+        <li><a href="regular_medi.zul">Regular Medication</a></li>
+        <li><a href="sos_medi.zul">SOS Medication</a></li>
+        <li><a href="once.zul">Once Only</a></li>                
+        </ul>
+        </li>
+        <!--<li><a href="doctor_prescription.zul">Doctor's Prescription</a></li>-->
+        <li><a href="nurse_administration.zul">Nurse Administration</a></li>				
+	</ul>	
+	      
+	  <h1>Blood Gas Tests</h1>
+      <ul class="sidemenu">
+        <li><a href="blood_gas_test.zul">Blood Gas Tests</a></li>
+      </ul>
+      <h1>Blood Tests</h1>
+      <ul class="sidemenu">
+        <li><a href="basic.zul">Basic</a></li>
+        <li><a href="specialised.zul">Specialised</a></li>
+      </ul>
+      <h1>Screening Tests</h1>
+      <ul class="sidemenu">
+        <li><a href="screeningtests.zul">Screening Tests</a></li>
+      </ul>      
+      	  
+      <h1>UltraSounds</h1>
+      <ul class="sidemenu">
+        <li><a href="cranial.zul">Cranial</a></li>
+        <li><a href="abdomen.zul">Abdomen</a></li>
+      </ul>
+      <h1>Xray</h1>
+      <ul class="sidemenu">
+        <li><a href="xray.zul">Xray</a></li>
+	</ul>	  
+
+
+
+	  <h1>Discharge Summary</h1>
+      <ul class="sidemenu">
+        <li><a href="discharge_summary.zul">Discharge Summary</a></li>
+	</ul>	  	  	
+    </div>
+    <div id="main">
+      <h1 class="head">Admission Form</h1>
+	  
+	  <table border="0">
+	  <tr>
+	  <td><label>Infant Name</label> <input type="text" value=""/> </td>
+	  <td><label>UID</label> <input type="text" disabled="disabled" value="1x23ygh4"/></td>
+	  </tr>
+	  <tr>
+	  <td><label>Birth Weight</label> <input type="text"/>
+	  <label>DOB</label> <input type="text" id="inputField"/>
+	  <label>EDD</label> <input type="text" name="edd"  id="edd" onclick="gestation_count();"/>
+      <br/>
+      <div style="width: 300px;">
+	  <p class="radio" style="margin-top:0px; float:none; height:0px; width:initial"><input type="radio" name="edd" id="resultlmp" style="float:left;"/> 	  <label style="float:none; width:162px;">From LMP</label>   <input type="text" id="inputField1" style="width:100px; float:right;"/></p>
+      <p class="radio" style="margin-top:0px; float:none; height:0px; width:initial"><input type="radio" name="edd" id="resultconception" style="float:left;"/> <label style="float:none; width:162px;">From Conception Date</label> <input type="text" id="inputField2" style="width:100px; float:right;"/></p>
+	  <p class="radio" style="margin-top:0px; float:none; height:0px; width:initial"><input type="radio" name="edd" id="resultsonogram" style="float:left;"/> <label style="float:none; width:162px;">From Sonogram</label> </p>
+      <p id="display_sonogram">
+      <label>Date of Sonogram</label><input type="text" id="inputField3" style="width:100px; float:right;"/>
+      <label style="width:102px;">Gestation Week</label><input type="text" id="week" style="width:25px; float:right; margin-right:100px;"/> <label style="width:51px; float:right; margin-top:-22px; margin-right: 29px;">Days</label><input type="text" id="days" style="width:25px; float:right;"/>
+      </p>
+      
+	  </div>
+	  <div style="clear:both;"></div> 
+	  <label>Gestation</label> <input type="text" placeholder="0 days" id="gestation"/>	  
+	  </td>
+	  <td><label>I.P.No</label> <input type="text" disabled="disabled" value="1x23ygh4"/>
+	  	  <label>Time of Birth</label>  <input type="text" name="s2Time2" value="" id="sample1"/>
+	  	  <label>Sex</label> <p class="radio">Male<input type="radio" name="sex" id="pink"/> Female<input type="radio" name="sex" id="blue"/></p>
+	  <label>Admitting Doctor</label> <input type="text"/>
+	  <label>Admitting Consultant</label> <input type="text" disabled="disabled" value="Dr. Raghu"/>	  
+	  </td>
+	  </tr>	
+	  <tr>
+	  <td colspan="2"><label>Obstetrician</label> <input type="text" id="colspan2"/></td>
+	  </tr> 
+	  <tr>
+	  <td><h2>Mother's Details</h2></td>
+	  <td><h2>Father's Details</h2></td>	  
+	  </tr>  
+	  <tr>
+	  <td><label>UID</label> <input type="text" disabled="disabled" value="1x23ygh4"/>	  	  
+	  <label>Name</label> <input type="text"/>
+	  <label>Date of Birth</label> <input type="text" id="inputField4"/>
+      <label>Age</label> <select><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option></select>	  
+	  </td>
+	  <td><label>Name</label> <input type="text"/>
+	  <label>Date of Birth</label> <input type="text"  id="inputField5"/>
+	  <label>Age</label> <select><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option></select>
+	  </td>	    
+	  </tr>  	  
+	  <tr>
+	  <td><h2>Past Obstetric History</h2></td>
+	  <td align="right"> <a href="#" id="insert-more"> Add New Row </a>
+	  </td>
+	  </tr>  	  
+	  <tr>
+	  <td colspan="2">
+		  <table width="100%" border="0" id="mytable">
+		  <tr>
+		  <td>Year</td>
+		  <td>Place</td>
+		  <td>Delivery</td>
+		  <td>Gest Age</td>
+		  <td>Birth Weight</td>
+
+		  </tr>
+		  <tr>
+		  <td><input type="text" /></td>
+		  <td><input type="text" /></td>
+		  <td><input type="text" /></td>
+		  <td><input type="text"/></td>
+		  <td><input type="text" /></td>
+		  </tr>		  
+		  </table>
+	  </td>	
+	  </tr>  	  	
+		<tr>
+	       <td colspan="2"><label class="textarea">Complications</label><textarea></textarea></td>		  		  		  		  		  
+		   </tr>
+		   <tr>
+		   <td colspan="2"><label class="textarea">Outcomes</label><textarea></textarea></td>		  		  		  		  		  		  
+		   </tr>
+		   <tr>
+		   <td colspan="2"><label class="textarea">Comments</label><textarea></textarea></td>		  		  		  		  		  		  		  
+		</tr>
+	  <tr>
+	  <td colspan="2"><label class="textarea">Past Medical History</label> <textarea></textarea>
+	  </td>
+	  </tr>
+
+
+      <tr>
+	  <td colspan="2"><h2>This Pregnancy</h2></td>
+	  </tr>  
+	  <tr>
+	  <td><label>Blood Group</label> <p class="radio">A<input type="radio" name="blood"/> B<input type="radio" name="blood"/> O<input type="radio" name="blood"/> AB<input type="radio" name="blood"/> </p>
+	  <label>RH Factor</label> <p class="radio">+ve<input type="radio" name="rh"/> -ve<input type="radio" name="rh"/></p>
+	   </td>
+	  <td>	  <label>Smoking</label> <p class="radio">Yes<input type="radio" name="smoking"/> No<input type="radio" name="smoking"/></p>
+	  <label>Alcohol</label> <p class="radio">Yes<input type="radio" name="alcohol"/> No<input type="radio" name="alcohol"/></p>
+	  <label>Drug Dependent</label> <p class="radio">Yes<input type="radio" name="drug"/> No<input type="radio" name="drug"/></p>
+	  <h3>Tests</h3>
+	  <label>Hepatitis B Status</label> <p class="radio">+ve <input type="radio" name="hepatitis"/> -ve <input type="radio" name="hepatitis"/>Not tested <input type="radio" name="hepatitis"/></p>
+      <label>HIV Status</label> <p class="radio">+ve <input type="radio" name="hiv"/> -ve <input type="radio" name="hiv"/> not tested<input type="radio" name="hiv"/></p>
+      <label>VDRL Status</label> <p class="radio">+ve <input type="radio" name="vdrl"/> -ve <input type="radio" name="vdrl"/> not tested<input type="radio" name="vdrl"/></p>	  
+      <label>Rubella Status</label> <p class="radio">+ve <input type="radio" name="rubella"/> -ve <input type="radio" name="rubella"/> not tested<input type="radio" name="rubella"/></p>
+      <label>Hb Electrophoresis</label> <p class="radio">+ve <input type="radio" name="hb"/> -ve <input type="radio" name="hb"/> not tested<input type="radio" name="hb"/></p>	  
+	  	  	  	  	  	  	  	  	  
+	  <label>Thyroid Function</label> <p class="radio">+ve <input type="radio" name="thyroid" id="result_yes1"/> -ve <input type="radio" name="thyroid" id="result_no1"/> not tested<input type="radio" name="thyroid" id="result_not"/></p>
+
+	  <div id="display_result1"><label></label> <p class="radio">Hyper<input type="radio" name="yes"/> Hypo<input type="radio" name="yes"/></p></div>
+
+	  <label>Triple Test</label> <p class="radio">+ve <input type="radio" name="triple"/> -ve <input type="radio" name="triple"/> not tested<input type="radio" name="triple"/></p>
+	  <label>Blood Sugar</label> <p class="radio">+ve <input type="radio" name="sugar"/> -ve <input type="radio" name="sugar"/> not tested<input type="radio" name="sugar"/></p>
+
+
+
+	  </td>	    
+	  </tr>
+	  <tr>
+	  <td colspan="2"><label class="textarea">Antenatal Problems &amp; Medications</label> <textarea></textarea></td>	    
+	  </tr>	  
+	  <tr>
+	  <td colspan="2"><label class="textarea">Antenatal US Scan</label> <textarea></textarea></td>	    
+	  </tr>
+	  <tr>
+	  <td><label>Umbical Artery Doppler</label> <p class="radio">+ve <input type="radio" name="doppler"/> absent <input type="radio" name="doppler"/> reversed<input type="radio" name="doppler"/></p></td>	    
+	  </tr>	  
+
+	  <tr>
+	  <td><label>Amniocentesis</label> <p class="radio">Yes<input type="radio" name="Amniocentesis" id="result_yes"/> No<input type="radio" name="Amniocentesis" id="result_no"/></p>
+	  <div id="display_result"><label>Result</label>  <input type="text"/></div>
+      <label>Double Marker</label> <p class="radio">Yes<input type="radio" name="double"/> No<input type="radio" name="double"/></p>
+      <label>Nuchal Translucency</label> <p class="radio">Yes<input type="radio" name="nuchal"/> No<input type="radio" name="nuchal"/></p>
+      <label>NIFTY</label> <p class="radio">Yes<input type="radio" name="nifty"/> No<input type="radio" name="nifty"/></p>
+	  </td>	    
+	  <td><label>Antenatal Steroids</label> <p class="radio">Yes<input type="radio" name="Steroids"/> No<input type="radio" name="Steroids"/></p>
+	  <label>No. of Course</label> <input type="text"/>
+	  <label>Date of Latest Course</label>  <input type="text" id="inputField6" style="width:80px; margin-right:100px;"/> <input type="text" name="s2Time2" value="" id="sample2" style="width:65px!important;"/>
+	  <label>Date of 1st Dose</label> <input type="text"   id="inputField7" style="width:80px; margin-right:100px;"/> <input type="text" name="s2Time2" value="" id="sample3" style="width:65px!important;"/>
+	  <label>Date of 2nd Dose</label> <input type="text"   id="inputField8" style="width:80px; margin-right:100px;"/> <input type="text" name="s2Time2" value="" id="sample4" style="width:65px!important;"/>	  
+	  </td>	    
+	  </tr>
+	  <tr>
+	  <td colspan="2"><h2>Delivery and labor</h2></td>
+	  </tr>	  	  	  	  
+	  <tr>
+	  <td><label>labor</label> <p class="radio">Yes<input type="radio" name="labor"/> No<input type="radio" name="labor"/></p>
+	  <label> </label><p class="radio">Spontaneous<input type="radio" name="labor1"/> Induced<input type="radio" name="labor1"/></p>
+	  <label>Date of onset</label>  <input type="text"   id="inputField9"/>
+	  <label>Time of onset</label>  <input type="text" name="s2Time2" value="" id="sample5"/>
+	  </td>
+	  <td>
+	  </td>	  
+	  </tr>	  	  	  	  	  
+	  <tr>
+	  <td><label>Membranes Ruptured</label> <p class="radio">Yes<input type="radio" name="membranes"/> No<input type="radio" name="membranes"/></p>
+	  </td>
+	  <td>
+	  <label>Duration of Rupture</label>  <select><option>Less than 24 hours</option> <option>More than 24 hours</option></select>
+	  </td>	  
+	  </tr>	  	  	  	  	  
+
+	  <tr>
+	  <td colspan="2"><h2>Mode of Delivery</h2></td>
+	  </tr>
+	  <tr>	  	  	  	  	  
+	  <td><label>Vaginal</label> <p class="radio"><input type="radio" name="vaginal"/> Spontaneous<br/> <input type="radio" name="vaginal"/> forceps<br/><input type="radio" name="vaginal"/> ventouse</p><br />
+<br />
+<br />
+<br />
+
+	  <label>Caesarean Section</label> <p class="radio"><input type="radio" name="caesarean"/> Prelabor elective<br/> <input type="radio" name="caesarean"/> Emergency in labor</p>
+	  </td>
+	  <td><label>Presentation</label> <p class="radio"><input type="radio" name="presentation"/> Vertex <input type="radio" name="presentation"/> Breech <input type="radio" name="presentation"/> Other</p>
+	  <label>Fetal Distress</label> <p class="radio"><input type="radio" name="fetal"/> Yes <input type="radio" name="fetal"/> No</p>
+	  <label>CTG abnormal</label> <p class="radio"><input type="radio" name="ctg"/> Yes <input type="radio" name="ctg"/> No</p>
+	  <label>Fresh me corium</label> <p class="radio"><input type="radio" name="fresh"/> Yes <input type="radio" name="fresh"/> No</p>	  
+	  <label>Cord gas 1:</label> <p class="radio" style="height:35px;"><input type="radio" name="cord"/> venous<br/><input type="radio" name="cord"/> arterial<br /><input type="radio" name="cord"/> unknown</p>
+	  <p style="clear:both;"></p>
+	  <label>PH</label> <input type="text" />
+	  <label>Bex</label> <input type="text"/>
+	  </td>	  	  
+      </tr>
+	  
+	  <tr>	  	  	  	  	  
+		<td> </td>
+		<td>
+		<h3>Apgar Score</h3>
+		<label>1 min</label><select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+		<label>5 min</label><select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+		<label>10 min</label><select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+
+	  <label>Vitamin K Given</label> <p class="radio"><input type="radio" name="vitamin"/> Yes <input type="radio" name="vitamin"/> No</p>		
+	  <label>Dose</label><input type="text" disabled="disabled" value="1.0 mg/IM" />
+		</td>
+      </tr>
+	  </table> 
+	 <p style="text-align:center;" id="buttons"><input type="submit"  value="Submit" id="submit"/> <input type="submit"  value="Cancel" id="submit"/> 	</p>	
+	  
+    </div>
+	
+    
+  </div>
+</div>
+</body>
+]]></html>
+</zk>

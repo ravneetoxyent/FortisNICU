@@ -1,0 +1,32 @@
+<zk>
+<style src="/css/formpattern0.css"/>
+<style src="/css/__common.css"/>
+<zscript src="/library/uilibrary.zs"/>
+<?init zscript="/library/init.zs"?>
+<?page id="formpattern0"?>
+ <window class="formpattern0" title="" width="100%" draggable="false" height="730px" id="formpattern0" visible="true" droppable="false">
+ <attribute name="onClick"><![CDATA[
+setFormPatternId("formpattern0");
+setDatapatternId("");
+invokeComponent("dbComponent","save","com.oxymedical.component.db.DBComponent","formPatternName");
+;
+]]></attribute>
+  <button class="button0" width="75px" draggable="false" height="30px" id="button0" label="submit" tabindex="0" visible="true" droppable="false">
+ <attribute name="onClick"><![CDATA[
+setFormPatternId("formpattern0");
+setDatapatternId("");
+invokeComponent("dbComponent","save","com.oxymedical.component.db.DBComponent","formpattern0");
+;
+]]></attribute>
+  
+</button>
+ <label class="label0" width="50px" draggable="false" height="30px" id="label0" value="Patient Name" visible="true" droppable="false">
+   
+</label>
+ <textbox class="textbox0" width="100px" draggable="false" height="20px" maxlength="32767" id="textbox0" tabindex="9" value=""  visible="true" droppable="false" readonly="false" name="textbox0" onChange='setTextboxId()'>
+   
+</textbox>
+
+</window>
+</zk>
+
