@@ -345,7 +345,9 @@
                                   		addFormValue("doctorExamining","D1");
                                   		addFormValue("EYE_RG" , "Left");
 										setFormPatternId("initial_examination");
-										setDatapatternId("");
+										setDatapatternId("FORTIS");
+										Object rootFormValue = self.getRoot();
+										formValues = createFormValues(rootFormValue,formValues);
 										invokeComponent("dbComponent","save","com.oxymedical.component.db.DBComponent","initial_examination");
 									]]></attribute>
 								</button>	
