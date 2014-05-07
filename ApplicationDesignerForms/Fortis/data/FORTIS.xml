@@ -11,7 +11,7 @@
                 <xs:element name="DOCTOR_EXAMINING" msdata:Caption="50" type="xs:string" minOccurs="0" />
                 <xs:element name="DATE" type="xs:dateTime" minOccurs="0" />
                 <xs:element name="TIME" type="xs:duration" minOccurs="0" />
-                <xs:element name="BITRH_WEIGHT" type="xs:int" minOccurs="0" />
+                <xs:element name="BITRH_WEIGHT" type="xs:decimal" minOccurs="0" />
                  <xs:element name="CENTILE_BW" type="xs:decimal" minOccurs="0" />
                 <xs:element name="OFC" type="xs:decimal" minOccurs="0" />
                  <xs:element name="CENTILE_OFC" type="xs:decimal" minOccurs="0" />
