@@ -145,7 +145,7 @@
                                                 <toolbarbutton id="date"
                                                     label="Date" />
                                                     <space bar="true" spacing="65px" />
-                                                    <datebox id="dateBox" />
+                                                    <datebox id= "dateBox" />
                                                     
                                                     <space bar="true" spacing="65px" />
                                                     <toolbarbutton id="Time"

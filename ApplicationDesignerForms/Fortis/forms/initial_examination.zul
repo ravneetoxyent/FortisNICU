@@ -146,7 +146,7 @@
                                                 <toolbarbutton id="date"
                                                     label="Date" />
                                                     <space bar="true" spacing="65px" />
-                                                    <datebox id="dateBox">
+                                                    <datebox id= "dateBox">
                                                     	<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="DATE: Date"/>
    		 												</DataMappings>
@@ -164,8 +164,7 @@
                                         <row>
                                             <div>
                                             
-                                                <toolbarbutton
-                                                    label="Birth Weight" />
+                                                <toolbarbutton  label="Birth Weight" >
                                                     <space bar="true" spacing="24px" />
                                                 	<doublebox id= "birthWeightBox">
                                                 		<DataMappings>
@@ -177,9 +176,8 @@
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="CENTILE_BW: Double"/>
    		 												</DataMappings>
                                                 	</doublebox>
-                                                
-                                                 <toolbarbutton
-                                                    label="OFC" />
+                                                </toolbarbutton>
+                                                 <toolbarbutton  label="OFC" >
                                                     <doublebox id="ofcBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="OFC: Double"/>
@@ -190,18 +188,19 @@
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="CENTILE_OFC: Double"/>
    		 												</DataMappings>
                                                 	</doublebox>
+ 												 </toolbarbutton>
                                             </div>
                                         </row>
                                         <row>
                                             <div>
                                             <space bar="true" spacing="280px" />
-                                                <toolbarbutton
-                                                    label="Temp" />
+                                                <toolbarbutton    label="Temp" >
                                                    <doublebox id= "tempBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="TEMP: Double"/>
    		 												</DataMappings>
                                                 </doublebox>
+                                             </toolbarbutton> 
                                             </div>
                                         </row>   
                                     </rows>
