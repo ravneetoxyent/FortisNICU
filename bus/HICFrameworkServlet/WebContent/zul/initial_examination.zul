@@ -132,11 +132,9 @@
                                            
                                                 <toolbarbutton
                                                     label="Doctor Examining" />
-                                                    <combobox id = "doctorExamining">
-                                                    	
-                                                    	<comboitem id= "doctorOne" label="D1"/>
-                                                    	<comboitem id= "doctorTwo" label="D2"/>
-
+                                                    <combobox id = "doctorExamining">                                    	
+                                                    	<comboitem id= "D1" label="D1"/>
+                                                    	<comboitem id= "D2" label="D2"/>
                                                     </combobox>
                                                     
                                             </div>
@@ -144,34 +142,34 @@
                                         <row>
                                             <div>
                                                      
-                                                <toolbarbutton
+                                                <toolbarbutton id="date"
                                                     label="Date" />
                                                     <space bar="true" spacing="65px" />
-                                                    <datebox />
+                                                    <datebox id="dateBox" />
+                                                    
                                                     <space bar="true" spacing="65px" />
-                                                    <toolbarbutton
+                                                    <toolbarbutton id="Time"
                                                     label="Time" />
-                                                    <timebox />
+                                                    <timebox  id = "timeBox"/>
                                             </div>
                                         </row>
                                         <row>
                                             <div>
                                             
-                                                <toolbarbutton
-                                                    label="Birth Weight" />
+                                                <toolbarbutton label="Birth Weight" />
                                                     <space bar="true" spacing="24px" />
-                                                <doublebox /><doublebox />
-                                                 <toolbarbutton
-                                                    label="OFC" />
-                                                    <doublebox /><doublebox />
+                                                	<doublebox id= "birthWeightBox"/>
+                                                	<doublebox id= "birthCentileBox" />
+                                                 <toolbarbutton label="OFC" />
+                                                    <doublebox id="ofcBox"/>
+                                                    <doublebox id= "centileOFCBox"/>
                                             </div>
                                         </row>
                                         <row>
                                             <div>
                                             <space bar="true" spacing="280px" />
-                                                <toolbarbutton
-                                                    label="Temp" />
-                                                    <doublebox />  
+                                                <toolbarbutton  label="Temp" />
+                                                    <doublebox id= "tempBox"/>  
                                             </div>
                                         </row>   
                                     </rows>
@@ -189,7 +187,7 @@
         <rows sclass="narrow">
             <row>
             	<label id = "EyeReflex" value="Eyes Red Reflex" />
-               <radiogroup id ="EYE_RG" onCheck="EyeReflex.value = self.selectedItem.value">
+               <radiogroup id ="EYE_RG">
 					<radio id = "LeftEye"  />
                 	 <radio id = "RightEye"  />
                 </radiogroup>
@@ -321,9 +319,8 @@
                <rows>
                 <row>
                 <div>
-                  <toolbarbutton
-                   label="Problems at admission" />
-                    <textbox style="width:800px; height:100px" />
+                  <toolbarbutton label="Problems at admission" />
+                    <textbox id = "PROBLEMSATADMISSION"  style="width:800px; height:100px" />
                      </div>
                         </row>
                             </rows>
@@ -342,11 +339,10 @@
                           <toolbar align="center" >
                                  <button class="button0" label="Submit" id="button0">
                                   <attribute name="onClick"><![CDATA[
-                                  		addFormValue("doctorExamining","D1");
-                                  		addFormValue("EYE_RG" , "Left");
 										setFormPatternId("initial_examination");
 										setDatapatternId("FORTIS");
 										Object rootFormValue = self.getRoot();
+										System.out.println("rootFormValue = " + rootFormValue);
 										formValues = createFormValues(rootFormValue,formValues);
 										invokeComponent("dbComponent","save","com.oxymedical.component.db.DBComponent","initial_examination");
 									]]></attribute>

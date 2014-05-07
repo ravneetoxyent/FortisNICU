@@ -131,8 +131,8 @@
                                                 <toolbarbutton
                                                     label="Doctor Examining" />
                                                     <combobox id = "doctorExamining"> 	
-                                       					<comboitem id= "doctorOne" label="D1"/>
-                                                    	<comboitem id= "doctorTwo" label="D2"/>>
+                                       					<comboitem id= "D1" label="D1"/>
+                                                    	<comboitem id= "D2" label="D2"/>>
                                                     	<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="DOCTOR_EXAMINING: String"/>
    		 												</DataMappings>
@@ -143,18 +143,18 @@
                                         <row>
                                             <div>
                                                      
-                                                <toolbarbutton 
+                                                <toolbarbutton id="date"
                                                     label="Date" />
                                                     <space bar="true" spacing="65px" />
-                                                    <datebox id = "dateId">
+                                                    <datebox id="dateBox">
                                                     	<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="DATE: Date"/>
    		 												</DataMappings>
    		 											</datebox>
                                                     <space bar="true" spacing="65px" />
-                                                    <toolbarbutton
+                                                     <toolbarbutton id="Time"
                                                     label="Time" />
-                                                    <timebox>
+                                                    <timebox  id = "timeBox">
                                                     <DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="TIME: Time"/>
    		 											</DataMappings>
@@ -167,12 +167,12 @@
                                                 <toolbarbutton
                                                     label="Birth Weight" />
                                                     <space bar="true" spacing="24px" />
-                                                	<doublebox>
+                                                	<doublebox id= "birthWeightBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="BIRTH_WEIGHT: Long"/>
    		 												</DataMappings>
                                                  	</doublebox>
-                                                 	<doublebox>
+                                                 	<doublebox id= "birthCentileBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="CENTILE_BW: Double"/>
    		 												</DataMappings>
@@ -180,12 +180,12 @@
                                                 
                                                  <toolbarbutton
                                                     label="OFC" />
-                                                    <doublebox>
+                                                    <doublebox id="ofcBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="OFC: Double"/>
    		 												</DataMappings>
                                                  	</doublebox>
-                                                 	<doublebox>
+                                                 	<doublebox id= "centileOFCBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="CENTILE_OFC: Double"/>
    		 												</DataMappings>
@@ -197,7 +197,7 @@
                                             <space bar="true" spacing="280px" />
                                                 <toolbarbutton
                                                     label="Temp" />
-                                                   <doublebox>
+                                                   <doublebox id= "tempBox">
                                                 		<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="TEMP: Double"/>
    		 												</DataMappings>
@@ -219,7 +219,7 @@
         <rows sclass="narrow">
             <row>
                 <label id = "EyeReflex" value="Eyes Red Reflex" />
-            		<radiogroup id ="EYE_RG" onCheck="EyeReflex.value = self.selectedItem.value">
+            		<radiogroup id ="EYE_RG">
               		 <radio id = "LeftEye"  />
                 	 <radio id = "RightEye"  />
               		  <DataMappings>
@@ -374,6 +374,7 @@
                   <radiogroup id ="Genitalia_RG" >
                 	<radio id = "NormalGenitalia"  />
                 	<radio id = "AbnormalGenitalia"  />
+                	 <DataMappings>
       					<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="GENITALIA : String"/>
    		 			</DataMappings>
                 </radiogroup>
