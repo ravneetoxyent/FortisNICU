@@ -168,7 +168,7 @@
                                                     <space bar="true" spacing="24px" />
                                                 	<doublebox id= "birthWeightBox">
                                                 		<DataMappings>
-      														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="BIRTH_WEIGHT: Long"/>
+      														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="BIRTH_WEIGHT: Double"/>
    		 												</DataMappings>
                                                  	</doublebox>
                                                  	<doublebox id= "birthCentileBox">
@@ -218,39 +218,39 @@
         <rows sclass="narrow">
             <row>
                 <label id = "EyeReflex" value="Eyes Red Reflex" />
-            		<radiogroup id ="EYE_RG">
-              		 <radio id = "LeftEye"  />
-                	 <radio id = "RightEye"  />
+            	<radiogroup id ="EYE_RG">
+              		 <radio id = "LeftEye" value="L" />
+                	 <radio id = "RightEye" value= "R"/>
               		  <DataMappings>
-      						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield=" EYE_RED_REFLEX: String"/>
+      						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="EYE_RED_REFLEX: String"/>
    		 			</DataMappings>
-              		</radiogroup> 
+              	</radiogroup> 
                 </row>
                  <row>
                 <label id = "Ears" value="Ears" />
                 <radiogroup id ="Ear_RG" >
-                	<radio id = "LeftEar"  />
-                	<radio id = "RightEar"  />
+                	<radio id = "LeftEar" value="L" />
+                	<radio id = "RightEar" value= "R" />
                 	 <DataMappings>
-      						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield=" EARS: String"/>
+      						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="EARS: String"/>
    		 			</DataMappings>
                 </radiogroup>	
             </row>
             <row>
                 <label id="Hands" value="Hands" />
                 <radiogroup id = "Hands_RG">
-                   	<radio id = "LeftHands"  />
-                	<radio id = "RightHands"  />            	
+                   	<radio id = "LeftHands" value= "L" />
+                	<radio id = "RightHands" value= "R" />            	
                 	 <DataMappings>
-      						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield=" HANDS: String"/>
+      						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="HANDS: String"/>
    		 			</DataMappings>
                 </radiogroup>	
             </row>
             <row>
  				<label id = "Upper_limbs" value="Upper limbs" />
                  <radiogroup id ="Upper_limbs_RG" >
-  					<radio id = "LeftUpperLimbs"  />
-                	<radio id = "RightUpperLimbs"  />
+  					<radio id = "LeftUpperLimbs" value= "L" />
+                	<radio id = "RightUpperLimbs" value= "R" />
                 	  <DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="UPPER_LIMBS : String"/>
    		 			</DataMappings>
@@ -259,8 +259,8 @@
             <row>
                 <label id = "Testis" value="Testis" />
                  <radiogroup id ="Testis_RG" >
-               		<radio id = "LeftTestis"  />
-                	<radio id = "RightTestis"  />
+               		<radio id = "LeftTestis" value= "L" />
+                	<radio id = "RightTestis" value= "R" />
                 	  <DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="TESTIS : String"/>
    		 			</DataMappings>
@@ -269,8 +269,8 @@
             <row>
                 <label id = "Hips" value="Hips" />
                 <radiogroup id ="Hips_RG" >
-          			<radio id = "LeftHips"  />
-                	<radio id = "RightHips"  />
+          			<radio id = "LeftHips" value= "L" />
+                	<radio id = "RightHips" value= "R" />
                 	<DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="HIPS : String"/>
    		 			</DataMappings>
@@ -279,8 +279,8 @@
             <row>
                 <label id ="Legs" value="Legs" />
                  <radiogroup id ="Legs_RG" >
-                	<radio id = "LeftLegs"  />
-                	<radio id = "RightLegs"  />
+                	<radio id = "LeftLegs" value= "L"  />
+                	<radio id = "RightLegs" value= "R" />
                 	<DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="LEGS : String"/>
    		 			</DataMappings>
@@ -289,8 +289,8 @@
             <row>
                 <label id ="Feet" value="Feet" />
                  <radiogroup id ="Feet_RG" >
-                	<radio id = "LeftFeet"  />
-                	<radio id = "RightFeet"  />
+                	<radio id = "LeftFeet" value= "L" />
+                	<radio id = "RightFeet" value= "R" />
                 	<DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="FEET : String"/>
    		 			</DataMappings>
@@ -310,19 +310,18 @@
             <row>
                 <label id ="Palate" value="Palate" />
                  <radiogroup id ="Palate_RG" >
-                	<radio id = "NormalPalate"  />
-                	<radio id = "AbnormalPalate"  />
+                	<radio id = "NormalPalate" value= "L" />
+                	<radio id = "AbnormalPalate" value= "R" />
                 	<DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="PALATE : String"/>
    		 			</DataMappings>
                 </radiogroup>
-                <radio />
                 </row>
                  <row>
                 <label id ="Tone" value="Tone" />
        			 <radiogroup id ="Tone_RG" >
-                	<radio id = "NormalTone"  />
-                	<radio id = "AbnormalTone"  />
+                	<radio id = "NormalTone" value= "L" />
+                	<radio id = "AbnormalTone" value= "R" />
                 	<DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="TONE : String"/>
    		 			</DataMappings>
@@ -331,8 +330,8 @@
             <row>
                 <label id ="Mouth" value="Mouth" />
                  <radiogroup id ="Mouth_RG" >
-                	<radio id = "NormalMouth"  />
-                	<radio id = "AbnormalMouth"  />
+                	<radio id = "NormalMouth"  value= "L"/>
+                	<radio id = "AbnormalMouth" value= "R" />
                 	<DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="MOUTH : String"/>
    		 			</DataMappings>
@@ -341,8 +340,8 @@
             <row>
                 <label id ="Heart" value="Heart" />
                   <radiogroup id ="Heart_RG" >
-                	<radio id = "NormalHeart"  />
-                	<radio id = "AbnormalHeart"  />
+                	<radio id = "NormalHeart"  value= "L"/>
+                	<radio id = "AbnormalHeart" value= "R" />
                 	 <DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="HEART : String"/>
    		 			</DataMappings>
@@ -351,8 +350,8 @@
             <row>
                 <label id ="Liver" value="Liver" />
                   <radiogroup id ="Liver_RG" >
-                	<radio id = "NormalLiver"  />
-                	<radio id = "AbnormalLiver"  />
+                	<radio id = "NormalLiver"  value= "L"/>
+                	<radio id = "AbnormalLiver" value= "R" />
                 	 <DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="LIVER : String"/>
    		 			</DataMappings>
@@ -361,8 +360,8 @@
             <row>
                 <label id ="Spleen" value="Spleen" />
                  <radiogroup id ="Spleen_RG" >
-                	<radio id = "NormalSpleen"  />
-                	<radio id = "AbnormalSpleen"  />
+                	<radio id = "NormalSpleen"  value= "L"/>
+                	<radio id = "AbnormalSpleen" value= "R" />
                 	 <DataMappings>
       						<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="SPLEEN : String"/>
    		 			</DataMappings>
@@ -371,8 +370,8 @@
             <row>
                 <label id ="Genitalia" value="Genitalia" />
                   <radiogroup id ="Genitalia_RG" >
-                	<radio id = "NormalGenitalia"  />
-                	<radio id = "AbnormalGenitalia"  />
+                	<radio id = "NormalGenitalia"  value= "L"/>
+                	<radio id = "AbnormalGenitalia" value= "R" />
                 	 <DataMappings>
       					<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="GENITALIA : String"/>
    		 			</DataMappings>
@@ -381,8 +380,8 @@
             <row>
                 <label id ="Spine" value="Spine" />
                   <radiogroup id ="Spine_RG" >
-                	<radio id = "NormalSpine"  />
-                	<radio id = "AbnormalSpine"  />
+                	<radio id = "NormalSpine"  value= "L"/>
+                	<radio id = "AbnormalSpine" value= "R" />
                 	 <DataMappings>
       					<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="SPINE : String"/>
    		 			</DataMappings>
