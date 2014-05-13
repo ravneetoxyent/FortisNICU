@@ -140,7 +140,8 @@
                 <xs:element name="BirthWeight" type="xs:decimal" />
                 <xs:element name="YesterdayWt" type="xs:decimal" />
                 <xs:element name="PresentWt" type="xs:decimal" />
-                <xs:element name="FromBirthWeightIncrement" type="xs:decimal" />
+                <xs:element name="WeightChangeFromBirth" type="xs:decimal" />
+                <xs:element name="WeightChangeFromYesterday" type="xs:decimal" />
                 <xs:element name="Time" type="xs:int" />
                 <xs:element name="Method" msdata:Caption="50" type="xs:string" />
                 <xs:element name="FeedType" msdata:Caption="50" type="xs:string" />
@@ -151,9 +152,9 @@
                 <xs:element name="AA_Hr" type="xs:decimal" />
                 <xs:element name="Lipid_Hr" type="xs:decimal" />
                 <xs:element name="IVTotal" type="xs:decimal" />
-                <xs:element name="Aspirate_Vomite" type="xs:decimal" />
+                <xs:element name="Aspirate_Vomit" type="xs:decimal" />
                 <xs:element name="Urine" type="xs:decimal" />
-                <xs:element name="Urine2" type="xs:decimal" />
+                <xs:element name="urineCalculated" type="xs:decimal" />
                 <xs:element name="BO" msdata:Caption="50" type="xs:string" />
                 <xs:element name="Sao2" msdata:Caption="50" type="xs:string" />
                 <xs:element name="HR" msdata:Caption="50" type="xs:string" />
@@ -166,10 +167,45 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
+            <xs:element name="AdmissionForm" M2M="No">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ID" msdata:AutoIncrement="true" type="xs:int" />
+                <xs:element name="InfantName" msdata:Caption="50" type="xs:string" minOccurs="0" />
+                <xs:element name="BirthWeight" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DOB" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Gestation" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EDD" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="FromLMP" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="FromConceptionDate" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="DateOfUSS" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Week" type="xs:int" minOccurs="0" />
+                <xs:element name="Days" type="xs:int" minOccurs="0" />
+                <xs:element name="Obstetrician" msdata:Caption="50" type="xs:string" minOccurs="0" />
+                <xs:element name="TimeofBirth" type="xs:duration" minOccurs="0" />
+                <xs:element name="Sex" msdata:Caption="1" minOccurs="0">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:length value="1" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="AdmittingDoctor" msdata:Caption="50" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
         </xs:choice>
       </xs:complexType>
       <xs:unique name="Constraint1" msdata:PrimaryKey="true">
         <xs:selector xpath=".//INITIALEXAMINATION" />
+        <xs:field xpath="ID" />
+      </xs:unique>
+      <xs:unique name="Constraint2" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//nursingProgressReport" />
+        <xs:field xpath="ID" />
+      </xs:unique>
+      <xs:unique name="AdmissionForm_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//AdmissionForm" />
         <xs:field xpath="ID" />
       </xs:unique>
     </xs:element>

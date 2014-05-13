@@ -1,612 +1,835 @@
-<zk>
-<html><![CDATA[
-<head>
-<title>Nursing Progress Notes</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="images/BrightSide.css" type="text/css" />
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="jsDatePick_ltr.min.css" />
-<script type="text/javascript" src="jsDatePick.min.1.3.js"></script>
-
-		<script type="text/javascript" language="javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js"></script>
-		<script type="text/javascript" language="javascript" src="https://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js"></script>
-		<script type="text/javascript" language="javascript" src="http://jongsma.org/js/controls/protoplasm.js"></script>
-		<script type="text/javascript" language="javascript">
-			Protoplasm.use('timepicker')
-	.transform('input.timepicker')
-	.transform('input.timepicker2', {use24hrs: true});
-</script>
-
-<script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"inputField",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField1",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField2",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField3",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField4",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField5",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField6",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField7",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField8",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField9",
-			dateFormat:"%d-%M-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"inputField10",
-			dateFormat:"%d-%M-%Y"
-		});																				
-	};
-</script>
-<script>
-function appendrow()
+<zk  id="nursing_progress_notes" name="nursing_progress_notes">
+	<zscript src="/library/uilibrary.zs"/> 
+	<?page id="nursing_progress_notes"?>
+<![CDATA[
+public void urine()
 {
-setInterval(function()
-		{
-var j = jQuery.noConflict();
-     j("#mytable").each(function () {
-         var tds = '<tr>';
-         jQuery.each(j('tr#newrow td', this), function () {
-             tds += '<td>' + j(this).html() + '</td>';
-         });
-         tds += '</tr>';
-         if (j('tbody', this).length > 0) {
-             j('tbody', this).append(tds);
-         } else {
-             j(this).append(tds);
-         }
-     });
-},3600000);
-}
-</script>
-<script type="text/javascript">
-function previousdate()
-{
-
-var currentDate = new Date();
-currentDate.setDate(currentDate.getDate()-1);
-var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1;
-  var year = currentDate.getFullYear();
-
-  document.getElementById('current_date').innerHTML= "<b>" + day + "/" + month + "/" + year + "</b>";
-
-}
-
-function nextdate()
-{
-
-var currentDate = new Date();
-currentDate.setDate(currentDate.getDate()+1);
-var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1;
-  var year = currentDate.getFullYear();
-
-  document.getElementById('current_date').innerHTML= "<b>" + day + "/" + month + "/" + year + "</b>";
-
-}
-
-
-function currentdate()
-{
-
-var currentDate = new Date();
-var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1;
-  var year = currentDate.getFullYear();
-
-  document.getElementById('current_date').innerHTML= "<b>" + day + "/" + month + "/" + year + "</b>";
-
-}
-</script>
-<script>
-var s = jQuery.noConflict();
-s(window).load(function(){
-
-    s(".sum").each(function() {
-        s(this).keyup(function(){
-        	calculateaddition();
-        });
-    });
-    
-    s(".sum1").each(function() {
-        s(this).keyup(function(){
-        	calculateaddition1();
-        });
-    });    
-    s(".sum2").each(function() {
-        s(this).keyup(function(){
-        	calculateaddition2();
-        });
-    });     
-    s(".sum3").each(function() {
-        s(this).keyup(function(){
-        	calculateaddition3();
-        });
-    });        
-
-});
-
-function calculateaddition() {
-    var sum = 0;
-
-    s(".sum").each(function() {
-
-        if(!isNaN(this.value) && this.value.length!=0) {
-            sum += parseFloat(this.value);
-        }
-
-    });
-    
-
-    s("#sumvalue").val(sum.toFixed(2));
-
-}
-
-function calculateaddition1() {
-    var sum = 0;
-
-    s(".sum1").each(function() {
-
-        if(!isNaN(this.value) && this.value.length!=0) {
-            sum += parseFloat(this.value);
-        }
-
-    });
-    
-
-    s("#sumvalue1").val((parseFloat(sum.toFixed(2)) + parseFloat(document.getElementById('sumvalue').value)).toFixed(2));
-
-}
-
-
-function calculateaddition2() {
-    var sum = 0;
-
-    s(".sum2").each(function() {
-
-        if(!isNaN(this.value) && this.value.length!=0) {
-            sum += parseFloat(this.value);
-        }
-
-    });
-    
-
-    s("#sumvalue2").val((parseFloat(sum.toFixed(2)) + parseFloat(document.getElementById('sumvalue1').value)).toFixed(2));
-
-}
-
-
-function calculateaddition3() {
-    var sum = 0;
-
-    s(".sum3").each(function() {
-
-        if(!isNaN(this.value) && this.value.length!=0) {
-            sum += parseFloat(this.value);
-        }
-
-    });
-    
-    s("#sumvalue3").val((parseFloat(sum.toFixed(2)) + parseFloat(document.getElementById('sumvalue2').value)).toFixed(2));
-
-}
-
-</script>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
-<style>
-.input{width: auto!important; float:none!important; padding-left: 0px!important; margin-top:0px!important;}
-.select{width: 50px!important; float:none!important; padding-left: 0px!important; margin-top:0px!important;}
-#main1{max-width:1024px;}
-#main_nurse table#mytable tr td{border-right:none; font-size:10px; line-height:1em; vertical-align:top; text-align:center;}
-#main_nurse table#table{}
-#main_nurse table#table tr td{border-right:none; font-size:10px; line-height:1em; vertical-align:top; text-align:center;}
-input:focus{outline:none;}
-input.timepicker{width:30px!important;}
-input:focus{outline:none;}
-input#submit{width: auto!important;	margin-top: 0px!important;cursor: pointer;margin-bottom: 0px!important;height: auto!important;background: green!important;color: #fff;font-size: 16px;margin-right: 25px!important;}
-</style>
-<script>
-var l = jQuery.noConflict();
-l(window).load(function ()
-	{
-		l('.drug').click(function()
-	{
-		l('.show').css('display', 'block');
-	});
-
-});
-</script>
-<style>
-li.drug ul.show{display:none;}
-#content-wrap{overflow:hidden!important;}
-</style>
-
-<script>
-function checkbirthweight()
-{
-    var birthwt= document.getElementById('birthwt').value;
- 	if(birthwt.length < 3)
-		{
-			alert ("Please Enter Birth Weight Again. The weight should be in grams");
-			document.getElementById('birthwt').focus();
-		}
-	
-}	
-	
-function checkpresentweight()
-{
-    var presentwt = document.getElementById('presentwt').value;
-	var yesterdaywt =  document.getElementById('yesterdaywt').value;    
-	if(presentwt.length < 3)
-	{
-		alert ("Please Enter Present Weight Again. The weight should be in grams");
-		document.getElementById('presentwt').focus();
-	}
-    var diffyesterdaywt = presentwt - yesterdaywt;
-
-    var percentage1 = parseFloat(presentwt*10);
-    var percentage2 = parseFloat(percentage1/100);
-    var percentage3 = parseFloat(presentwt) + parseFloat(percentage2);
-    
-    var diffpercentage = parseFloat(percentage3)-parseFloat(presentwt);
-
-    if(diffyesterdaywt > diffpercentage)
-    {
-    	alert ("Please insert present weight again. The increment shouldn't be more than 10 %");
-    	return false;
-    }
-}
-
-function checkyesterdayweight()
-{
-	var yesterdaywt =  document.getElementById('yesterdaywt').value;
-	if(yesterdaywt.length < 3)
-	{
-		alert ("Please Enter Yesterday Weight Again. The weight should be in grams");
-		document.getElementById('yesterdaywt').focus();
-	}
-}
-
-function calculateSum() {
-	
-    var presentwt = document.getElementById('presentwt').value;
-    var birthwt= document.getElementById('birthwt').value;
-    var yesterdaywt =  document.getElementById('yesterdaywt').value;
-    if(presentwt == '' || presentwt == 'NaN')
-    	presentwt = 0;
-    if(birthwt == '' || birthwt == 'NaN')
-    	birthwt = 0;
-    if(yesterdaywt == '' || yesterdaywt == 'NaN')
-    	yesterdaywt = 0;
-    
-    var diffbirthwt = presentwt - birthwt;
-        
-    var diffyesterdaywt = presentwt - yesterdaywt;
-
-    if(presentwt !='0' && birthwt !='0')
-    {
-    document.getElementById('diffbirthwt').value=diffbirthwt.toFixed(0);
-	    if(diffbirthwt > 0)
-		    {
-		    	document.getElementById('from_birth').innerHTML= 'From Birth Weight Increment';
-		    }
-	    else if(diffbirthwt < 0)
-		    {
-		    	document.getElementById('from_birth').innerHTML= 'From Birth Weight Decrement';
-		    }    
-	    else
-		    {
-		    	document.getElementById('from_birth').innerHTML= 'From Birth Weight';
-		    }
-    }
-    
-    if(yesterdaywt!='0' && presentwt !='0')
-    {
-    document.getElementById('diffyesterdaywt').value=diffyesterdaywt.toFixed(0);
-	    if(diffyesterdaywt > 0)
-		    {
-		    	document.getElementById('from_yesterday').innerHTML= 'From Yesterday Weight Increment';
-		    }
-	    else if(diffyesterdaywt < 0)
-		    {
-		    	document.getElementById('from_yesterday').innerHTML= 'From Yesterday Weight Decrement';
-		    }    
-	    else
-		    {
-		    	document.getElementById('from_yesterday').innerHTML= 'From Yesterday Weight';
-		    }        
-    }
-}
-</script>
-
-<script>
-function urine()
-{
-
-	var presentwt = document.getElementById('presentwt').value;
-	presentwt = presentwt/1000;
-	if(presentwt == '')
+	String presentw = this.self.getFellow("presentwt").getValue();
+	if(presentw == "")
 	{
 		alert("Please enter the weight first");
-		document.getElementById("presentwt").focus();
 	}
 	else
 	{
-    var init= 1;
-    var max= 4; 
-    var sum= document.getElementById('urine'+init).value;
-	if(sum=='' || sum=='NaN')
+	int presentwtt = Integer.parseInt(presentw);
+	float presentwt = (float)presentwtt;
+    presentwt = presentwt/1000;
+    int init= 1;
+    int max= 4; 
+    String summ = this.self.getFellow("urine"+init).getValue();
+	if(summ == "" || summ == "NaN")
 	{
-		sum = 0;
+		summ = "0";
 	}
-    for(i = init+1; i<=max; i++)
+	  int sum = Integer.parseInt(summ);
+    for( int i=init+1; i<=max; i++)
     {
-    	hour = (i)-init;
-    	var urinevol = document.getElementById('urine'+i).value;
-    	if(urinevol=='' || urinevol=='NaN')
+    	
+    	String urinevoll = this.self.getFellow("urine"+i).getValue();
+    	if(urinevoll == "" || urinevoll == "NaN")
     	{
-    		urinevol = 0;
-    	}    	
-    	sum = eval(parseInt(sum) + parseInt(urinevol));
-    	var totalurine = sum/presentwt/hour;
-    	if(sum=='' || sum=='NaN')
+    		urinevoll = "0";
+    	}
+    	int urinevol = Integer.parseInt(urinevoll);
+    	int hour = 1;
+    	sum = sum + urinevol;
+    	float total = (float)(sum/presentwt/hour);
+    	if(sum == "" || sum== NaN)
     	{
     		sum = 0;
     	}
-    	document.getElementById('totalurine' + i).value = totalurine.toFixed(1);
+    	this.self.getFellow("totalurine").setValue(String.valueOf(total));
     }
 }
 }
-</script>
-</head>
-<body onload="currentdate(); appendrow();">
-<div id="wrap" >
-  <div id="header">
-    <h1 id="logo"><a href="menu.zul" class="logo"><img src="images/fortis.png" /></a></h1>
 
-   </div>
-  <div id="content-wrap">
-
-    <div id="main_nurse">
-      <h1 class="head" style="width:98%;">Nursing Progress Notes -> Hourly Chart</h1>
-      <p style="float:right; margin-top:-37px; color: #fff; padding-right: 10px;"><span onclick="previousdate()" style="cursor:pointer">&lt;&lt;&nbsp;&nbsp;</span><span id="current_date"></span><span onclick="nextdate()" style="cursor:pointer">&nbsp;&nbsp;&gt;&gt;</span></p>
-      <div style="clear:both;"></div>
-      <table>
-      <tr>
-      <td> <label>Name</label> <input type="text" class="input"/></td>
-      <td> <label id="from_birth">From Birth Weight</label> <input type="text" class="input inputdiff1" id="diffbirthwt"/></td>                  
-      </tr>
+public void urine2()
+{
+	String presentw = this.self.getFellow("presentwt").getValue();
+	if(presentw == "")
+	{
+		alert("Please enter the weight first");
+	}
+	else
+	{
+	int presentwtt = Integer.parseInt(presentw);
+	float presentwt = (float)presentwtt;
+    presentwt = presentwt/1000;
+    int init= 1;
+    int max= 4; 
+    String summ = this.self.getFellow("urine"+init).getValue();
+	if(summ == "" || summ == "NaN")
+	{
+		summ = "0";
+	}
+	  int sum = Integer.parseInt(summ);
+    for( int i=init+1; i<=max; i++)
+    {
+    	
+    	String urinevoll = this.self.getFellow("urine"+i).getValue();
+    	if(urinevoll == "" || urinevoll == "NaN")
+    	{
+    		urinevoll = "0";
+    	}
+    	int urinevol = Integer.parseInt(urinevoll);
+    	int hour = 2;
+    	sum = sum + urinevol;
+    	float total = (float)(sum/presentwt/hour);
+    	if(sum == "" || sum== NaN)
+    	{
+    		sum = 0;
+    	}
+    	this.self.getFellow("totalurine").setValue(String.valueOf(total));
+    }
+}
+}
+	         
+public void urine3()
+{
+	String presentw = this.self.getFellow("presentwt").getValue();
+	if(presentw == "")
+	{
+		alert("Please enter the weight first");
+	}
+	else
+	{
+	int presentwtt = Integer.parseInt(presentw);
+	float presentwt = (float)presentwtt;
+    presentwt = presentwt/1000;
+    int init= 1;
+    int max= 4; 
+    String summ = this.self.getFellow("urine"+init).getValue();
+	if(summ == "" || summ == "NaN")
+	{
+		summ = "0";
+	}
+	  int sum = Integer.parseInt(summ);
+    for( int i=init+1; i<=max; i++)
+    {
+    	
+    	String urinevoll = this.self.getFellow("urine"+i).getValue();
+    	if(urinevoll == "" || urinevoll == "NaN")
+    	{
+    		urinevoll = "0";
+    	}
+    	int urinevol = Integer.parseInt(urinevoll);
+    	int hour = 3;
+    	sum = sum + urinevol;
+    	float total = (float)(sum/presentwt/hour);
+    	if(sum == "" || sum== NaN)
+    	{
+    		sum = 0;
+    	}
+    	this.self.getFellow("totalurine").setValue(String.valueOf(total));
+    }
+}
+}
+	         
+public void urine4()
+{
+	String presentw = this.self.getFellow("presentwt").getValue();
+	if(presentw == "")
+	{
+		alert("Please enter the weight first");
+	}
+	else
+	{
+	int presentwtt = Integer.parseInt(presentw);
+	float presentwt = (float)presentwtt;
+    presentwt = presentwt/1000;
+    int init= 1;
+    int max= 4; 
+    String summ = this.self.getFellow("urine"+init).getValue();
+	if(summ == "" || summ == "NaN")
+	{
+		summ = "0";
+	}
+	  int sum = Integer.parseInt(summ);
+    for( int i=init+1; i<=max; i++)
+    {
+    	
+    	String urinevoll = this.self.getFellow("urine"+i).getValue();
+    	if(urinevoll == "" || urinevoll == "NaN")
+    	{
+    		urinevoll = "0";
+    	}
+    	int urinevol = Integer.parseInt(urinevoll);
+    	int hour = 4;
+    	sum = sum + urinevol;
+    	float total = (float)(sum/presentwt/hour);
+    	if(sum == "" || sum== NaN)
+    	{
+    		sum = 0;
+    	}
+    	this.self.getFellow("totalurine").setValue(String.valueOf(total));
+    }
+}
+}
+	         
+	         
+	         
+ public void checkbirthweight()
+{
+    String birthw= this.self.getFellow("birthwt").getValue();
+    if(birthw.length() < 3)
+    {
+    	   alert ("Please Enter Birth Weight Again. The weight should be in grams");
+    	  }  
+} 
  
-      <tr>
-      <td> <label>UID</label> <input type="text" class="input"/></td>
-      <td> <label id= "from_yesterday">From Yesterday Weight</label> <input type="text" class="input inputdiff" id="diffyesterdaywt"/></td>
-      </tr>
-      
-      
-      
-      <tr>
-      <td> <label>Birth Wt.</label> <input type="text" id="birthwt" class="input diff1" onkeyup="calculateSum()" placeholder="in grams" onblur= "checkbirthweight();"/></td>
-      <td></td>
-      </tr>
-      
-      
-      <tr>
-      <td> <label>Yesterday Wt.</label> <input type="text" id = "yesterdaywt" class="input diff" onkeyup="calculateSum()" placeholder="in grams" onblur= "checkyesterdayweight()"/></td>
-      <td></td>
-      </tr>
-      
-      <tr>
-      <td> <label>Present Wt.</label> <input type="text" id="presentwt" class="input diff diff1" onkeyup="calculateSum()" placeholder="in grams" onblur= "checkpresentweight()"/></td>      
-      <td></td>
-      </tr>      
-      
-      
-      </table>
+ /* public void checkpresentweight()
+{
+    String presentw = this.self.getFellow("presentwt").getValue();
+    if(presentw.length() < 3)
+    {
+     alert ("Please Enter Present Weight Again. The weight should be in grams");
+     return;
+    }
+    int presentwt = Integer.parseInt(presentw);
+    String yesterday =  this.self.getFellow("yesterdaywt").getValue();
+    int yesterdaywt = Integer.parseInt(yesterday);
+    float diffyesterdaywt = presentwt - yesterdaywt;
 
-      <div id="main1">
-      <table id="mytable">
-      <tr>
-      <td style="width:10px;">Time</td>
-      <td style="width:10px;">Method</td>
-      <td style="width:10px;">Feed Type</td>
-      <td style="width:10px;">Vol.</td>
-      <td style="width:10px;">Total</td>
-      <td style="width:10px;">I.V. Fluids</td>      
-      <td style="width:10px;">I.V /Hr</td>
-      <td style="width:10px;">AA /Hr</td>      
-      <td style="width:10px;">Lipid / Hr</td>
-      <td style="width:10px;">I.V. Total</td>
-      <td style="width:10px;">Aspir. / Vomit (ml)</td>
-      <td style="width:10px;">Urine (ml)</td>
-      <td style="width:10px;">Urine (ml /kg / hr)</td>
-      <td style="width:10px;">BO</td>
-      <td style="width:10px;">SaO<sub>2</sub> %</td>
-      <td style="width:10px;">HR</td>
-      <td style="width:10px;">RR</td>
-      <td style="width:10px;">B.P</td>
-      <td style="width:10px;">FIO<sub>2</sub></td>
-      <td style="width:10px;">Temp Axilla</td>
-      <td style="width:10px;">Temp Inc /Bed</td>
-      <td style="width:10px;">CPAP</td>
-      </tr>
-
-      <tr>
-      <td><input type="text" class="input" value="09" disabled/></td>
-      <td><select class="select"><option>N/G</option><option>Bottle</option><option>Breast</option></select></td>
-      <td><select class="select"><option>EBM</option><option>EBM+HMF</option><option>LBW</option><option>Term</option></select></td>      
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>      
-      <td><select class="select"><option>5% DEXTROSE</option><option>10% DEXTROSE (ml/kg/day)</option><option>RINGERS'S LACTATE</option><option>ISOLYTE P</option></select></td>      
-      <td><input type="text" class="input sum"/></td>
-      <td><input type="text" class="input sum"/></td>
-      <td><input type="text" class="input sum"/></td>
-      <td><input type="text" class="input" id="sumvalue"/></td>      
-      <td><input type="text" class="input "/></td>
-      <td><input type="text" class="input" id="urine1" onblur="urine()"/></td>
-      <td><input type="text" class="input" id="totalurine1"/></td>
-      <td><select class="select"><option>Green</option><option>Yellow</option><option>White</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>21 %</option><option>22 %</option><option>23 %</option><option>24 %</option><option>25 %</option><option>26 %</option><option>27 %</option><option>28 %</option><option>29 %</option><option>30 %</option><option>40 %</option><option>50 %</option><option>60 %</option><option>70 %</option><option>80 %</option><option>90 %</option><option>100 %</option></select></td>
-      <td><select class="select"><option>30 %</option><option>30.5 %</option><option>31 %</option><option>31.5 %</option><option>32 %</option><option>32.5 %</option><option>33 %</option><option>33.5 %</option><option>34 %</option><option>34.5 %</option><option>35 %</option><option>35.5 %</option><option>36 %</option><option>36.5 %</option><option>37 %</option><option>37.5 %</option><option>38 %</option><option>38.5 %</option><option>39 %</option><option>39.5 %</option><option>40 %</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-
-      </tr>
-      <tr>
-      <td><input type="text" class="input" value="10" disabled/></td>
-      <td><select class="select"><option>N/G</option><option>Bottle</option><option>Breast</option></select></td>
-      <td><select class="select"><option>EBM</option><option>EBM+HMF</option><option>LBW</option><option>Term</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>5% DEXTROSE</option><option>10% DEXTROSE (ml/kg/day)</option><option>RINGERS'S LACTATE</option><option>ISOLYTE P</option></select></td>       
-      <td><input type="text" class="input sum1"/></td>
-      <td><input type="text" class="input sum1"/></td>
-      <td><input type="text" class="input sum1"/></td>
-      <td><input type="text" class="input" id="sumvalue1"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input" id="urine2" onblur="urine()"/></td>
-      <td><input type="text" class="input" id="totalurine2"/></td>      
-      <td><select class="select"><option>Green</option><option>Yellow</option><option>White</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>21 %</option><option>22 %</option><option>23 %</option><option>24 %</option><option>25 %</option><option>26 %</option><option>27 %</option><option>28 %</option><option>29 %</option><option>30 %</option><option>40 %</option><option>50 %</option><option>60 %</option><option>70 %</option><option>80 %</option><option>90 %</option><option>100 %</option></select></td>
-      <td><select class="select"><option>30 %</option><option>30.5 %</option><option>31 %</option><option>31.5 %</option><option>32 %</option><option>32.5 %</option><option>33 %</option><option>33.5 %</option><option>34 %</option><option>34.5 %</option><option>35 %</option><option>35.5 %</option><option>36 %</option><option>36.5 %</option><option>37 %</option><option>37.5 %</option><option>38 %</option><option>38.5 %</option><option>39 %</option><option>39.5 %</option><option>40 %</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      </tr>
-      
-      
-      <tr>
-      <td><input type="text" class="input" value="11" disabled/></td>
-      <td><select class="select"><option>N/G</option><option>Bottle</option><option>Breast</option></select></td>
-      <td><select class="select"><option>EBM</option><option>EBM+HMF</option><option>LBW</option><option>Term</option></select></td>      
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>5% DEXTROSE</option><option>10% DEXTROSE (ml/kg/day)</option><option>RINGERS'S LACTATE</option><option>ISOLYTE P</option></select></td>       
-      <td><input type="text" class="input sum2"/></td>
-      <td><input type="text" class="input sum2"/></td>
-      <td><input type="text" class="input sum2"/></td>
-      <td><input type="text" class="input" id="sumvalue2"/></td>      
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input" id="urine3" onblur="urine()"/></td>
-      <td><input type="text" class="input" id="totalurine3"/></td>      
-      <td><select class="select"><option>Green</option><option>Yellow</option><option>White</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>21 %</option><option>22 %</option><option>23 %</option><option>24 %</option><option>25 %</option><option>26 %</option><option>27 %</option><option>28 %</option><option>29 %</option><option>30 %</option><option>40 %</option><option>50 %</option><option>60 %</option><option>70 %</option><option>80 %</option><option>90 %</option><option>100 %</option></select></td>
-      <td><select class="select"><option>30 %</option><option>30.5 %</option><option>31 %</option><option>31.5 %</option><option>32 %</option><option>32.5 %</option><option>33 %</option><option>33.5 %</option><option>34 %</option><option>34.5 %</option><option>35 %</option><option>35.5 %</option><option>36 %</option><option>36.5 %</option><option>37 %</option><option>37.5 %</option><option>38 %</option><option>38.5 %</option><option>39 %</option><option>39.5 %</option><option>40 %</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>      
-      </tr>
-      
-      <tr id="newrow">
-      <td><input type="text" class="input" value="12" disabled/></td>
-      <td><select class="select"><option>N/G</option><option>Bottle</option><option>Breast</option></select></td>
-      <td><select class="select"><option>EBM</option><option>EBM+HMF</option><option>LBW</option><option>Term</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>5% DEXTROSE</option><option>10% DEXTROSE (ml/kg/day)</option><option>RINGERS'S LACTATE</option><option>ISOLYTE P</option></select></td>       
-      <td><input type="text" class="input sum3"/></td>
-      <td><input type="text" class="input sum3"/></td>
-      <td><input type="text" class="input sum3"/></td>
-      <td><input type="text" class="input" id="sumvalue3"/></td>      
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input" id="urine4" onblur="urine()"/></td>
-      <td><input type="text" class="input" id="totalurine4"/></td>      
-      <td><select class="select"><option>Green</option><option>Yellow</option><option>White</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select"><option>21 %</option><option>22 %</option><option>23 %</option><option>24 %</option><option>25 %</option><option>26 %</option><option>27 %</option><option>28 %</option><option>29 %</option><option>30 %</option><option>40 %</option><option>50 %</option><option>60 %</option><option>70 %</option><option>80 %</option><option>90 %</option><option>100 %</option></select></td>
-      <td><select class="select"><option>30 %</option><option>30.5 %</option><option>31 %</option><option>31.5 %</option><option>32 %</option><option>32.5 %</option><option>33 %</option><option>33.5 %</option><option>34 %</option><option>34.5 %</option><option>35 %</option><option>35.5 %</option><option>36 %</option><option>36.5 %</option><option>37 %</option><option>37.5 %</option><option>38 %</option><option>38.5 %</option><option>39 %</option><option>39.5 %</option><option>40 %</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      </tr>      
-      </table>
-<table id="table">      
-      <tr bgcolor="#ccc">
-      <td><input type="text" class="input" value="Total" style="background:none; border:1px solid #ccc; color: #ff0000; text-align:center;"disabled/></td>
-      <td><select class="select" style="visibility:hidden;"><option>N/G</option><option>Bottle</option><option>Breast</option></select></td>
-      <td><select class="select" style="visibility:hidden;"><option>EBM</option><option>EBM+HMF</option><option>LBW</option><option>Term</option></select></td>      
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select" style="visibility:hidden;"><option>EBM</option><option>EBM+HMF</option><option>LBW</option><option>Term</option></select></td>       
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>                  
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>      
-      <td><select class="select" style="visibility:hidden;"><option>Yellow</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>
-      <td><select class="select" style="visibility:hidden;"><option>100 %</option></select></td>
-      <td><select class="select" style="visibility:hidden;"><option>39.5 %</option></select></td>
-      <td><input type="text" class="input"/></td>
-      <td><input type="text" class="input"/></td>      
-      </tr>
-</table>      
-</div>
-
-
-    </div>
-	
+    float percentage1 = presentwt*10;
+    float percentage2 = percentage1/100;
+    float percentage3 = (float)presentwt + percentage2;
     
-  </div>
-</div>
-</body>
-]]></html>
+    float diffpercentage = percentage3 - (float)presentwt;
+
+    if(diffyesterdaywt > diffpercentage)
+    {
+     alert ("Please insert present weight again. The increment shouldn't be more than 10 %");
+     return;
+    }
+ }
+*/
+public void checkyesterdayweight()
+{
+ String yesterday =  this.self.getFellow("yesterdaywt").getValue();
+ if(yesterday.length() < 3)
+ {
+  alert ("Please Enter Yesterday Weight Again. The weight should be in grams");
+ } 
+}
+
+public void calculateSum() {
+	
+    String presentw = this.self.getFellow("presentwt").getValue();
+    if(presentw.length() < 3)
+    {
+     alert ("Please Enter Present Weight Again. The weight should be in grams");
+     return;
+    }
+    int presentwt = Integer.parseInt(presentw);
+    String yesterday =  this.self.getFellow("yesterdaywt").getValue();
+    int yesterdaywt = Integer.parseInt(yesterday);
+    float diffyesterdaywt = presentwt - yesterdaywt;
+
+    float percentage1 = presentwt*10;
+    float percentage2 = percentage1/100;
+    float percentage3 = (float)presentwt + percentage2;
+    
+    float diffpercentage = percentage3 - (float)presentwt;
+
+    if(diffyesterdaywt > diffpercentage)
+    {
+     alert ("Please insert present weight again. The increment shouldn't be more than 10 %");
+     return;
+    }
+    
+    
+    
+   // int presentwt=Integer.parseInt(presentw);
+    if(presentwt == "" || presentwt == NaN  )
+        presentwt = 0;
+    
+    
+    String birthw= this.self.getFellow("birthwt").getValue();
+    int birthwt=Integer.parseInt(birthw);
+    	  
+    if(birthwt == "" || birthwt == NaN)
+     birthwt = 0;
+    
+    String yesterdayw =  this.self.getFellow("yesterdaywt").getValue();
+    int yesterdaywt=Integer.parseInt(yesterdayw);
+   
+    if(yesterdaywt == "" || yesterdaywt == NaN)
+     yesterdaywt = 0;
+    
+    
+    float diffbirth = presentwt - birthwt;
+        
+    float diffyesterday = presentwt - yesterdaywt;
+
+    if(presentwt != 0 && birthwt != 0)
+    {
+    	this.self.getFellow("diffbirthwt").setValue(String.valueOf(diffbirth));
+    	//float diff1 = this.self.getFellow("diffbirth").setValue();
+     if(diffbirth > 0)
+      {                                                              //String firstvalue = this.self.getFellow("volume1").getValue();
+                                                                     //this.self.getFellow("volumetotal1").setValue(firstvalue) ; 
+    	 this.self.getFellow("from_birth").setValue("From Birth Weight Increment"); //innerHTML= "From Birth Weight Increment";
+      }                                                            
+     else if(diffbirth < 0)
+      {
+    	 this.self.getFellow("from_birth").setValue("From Birth Weight Decrement");   //innerHTML= "From Birth Weight Decrement";
+      }    
+     else
+      {
+    	 this.self.getFellow("from_birth").setValue("From Birth Weight");          //innerHTML= "From Birth Weight";
+      }
+    }
+    
+    if(yesterdaywt != 0 && presentwt != 0)
+    {
+    	this.self.getFellow("diffyesterdaywt").setValue(String.valueOf(diffyesterday));
+    	
+    	//float diff2=this.self.getFellow("diffyesterday").getValue();
+     if(diffyesterday > 0)
+      {
+    	 this.self.getFellow("from_yesterday").setValue("From Yesterday Weight Increment");                      //.innerHTML= "From Yesterday Weight Increment";
+      }
+     else if(diffyesterday < 0)
+      {
+    	 this.self.getFellow("from_yesterday").setValue("From Yesterday Weight Decrement");                         //.innerHTML= "From Yesterday Weight Decrement";
+      }    
+     else
+      {
+    	 this.self.getFellow("from_yesterday").setValue("From Yesterday Weight");                            //.innerHTML= "From Yesterday Weight";
+      }        
+    }
+}
+	         
+	         
+	         
+	         public void volume_total(){
+
+	             int init= 1;
+	              int max= 4;
+	              int sum=0;
+	              int volumevol=0;
+	              String sumStr =this.self.getFellow("volume"+init).getValue();
+	              
+	              if(sumStr=="" || sumStr=="NaN")
+	              {
+	               sum = 0;
+	              }
+	              else{
+	             	 sum=Integer.parseInt(sumStr);
+	              }
+	              for(int i=init+1; i<=max; i++)
+	              {
+	               String volumevolStr =this.self.getFellow("volume"+i).getValue();
+	               if(volumevolStr=="" || volumevolStr=="NaN")
+	               {
+	                 volumevol = 0;
+	               }    	 
+	               else
+	               {
+	               volumevol = Integer.parseInt(volumevolStr);
+	               }    
+	               sum = sum + volumevol;
+	           //    sum = eval(parseInt(sum) + parseInt(volumevol));
+	               int totalvolume = sum;
+	               
+	               this.self.getFellow("volumetotal"+i).setValue(String.valueOf(totalvolume));
+	              }
+	              String firstvalue = this.self.getFellow("volume1").getValue();
+	              this.self.getFellow("volumetotal1").setValue(firstvalue) ; 
+	         }
+	         
+	public void IV_total() {
+		int init = 1;
+		int max = 4;
+		int sum = 0;
+		int volumevol = 0;
+		for (int i = init; i <= max; i++) {
+			String val1 = this.self.getFellow("input"+i).getValue();
+			String val2 = this.self.getFellow("input"+(i+4)).getValue();
+			String val3 = this.self.getFellow("input"+(i+8)).getValue();
+			if (val1 == "" || val1 == "NaN") {
+				val1 = "0";
+			}
+			if (val2 == "" || val2 == "NaN") {
+				val2 = "0";
+			}
+			if (val3 == "" || val3 == "NaN") {
+				val3 = "0";
+			}
+			int sumStr = Integer.parseInt(val1) + Integer.parseInt(val2)
+					+ Integer.parseInt(val3);
+
+			if (sumStr == "" || sumStr == "NaN") {
+				sum = 0;
+			} else {
+				sum = sumStr;
+				volumevol=volumevol+sum;
+			}
+			this.self.getFellow("sumvalue"+i).setValue(String.valueOf(volumevol));
+		}
+	}
+]]>
+	
+	<style>
+		body{background: #f0f0f0;}
+		.z-panel-tr,.z-panel-tl,.z-panel-hl,.z-panel-hr,.z-panel-children,.z-panel-hm{background:
+		none; border: none;} .sub_menu .z-toolbarbutton-cnt{margin-left:
+		10px; border-left: 4px solid #CCC; padding-left: 10px;}
+		.z-toolbarbutton-cnt{background: none!important;
+		background-image:none!important; outline: none!important;}
+		.sub_menu .z-toolbarbutton-cnt:hover{border-left: 4px solid
+		green; padding-left: 10px; margin-left: 10px; border-right:none;
+		border-top:none; border-bottom:none;}
+		.z-center,.z-east{border:none;} .z-panel-hm .z-panel-header,
+		.z-panel-header{font-size:13px; font-weight: bold;
+		color:#6297BC} .z-toolbar{background: #f0f0f0!important;
+		border:none!important;} tr.z-grid-odd td.z-row-inner,
+		tr.z-grid-odd .z-cell{border:none; background:none;
+		background-color: none;} tr.z-grid-odd td.z-row-inner,
+		tr.z-grid-odd .z-cell, tr.z-grid-odd{border:none;
+		background:none; background-color: none;} tr.z-row
+		td.z-row-inner, tr.z-row .z-cell{border:none; background:
+		#f0f0f0;} .z-combobox-rounded-inp, .z-bandbox-rounded-inp,
+		.z-datebox-rounded-inp, .z-timebox-rounded-inp,
+		.z-spinner-rounded-inp, .z-doublespinner-rounded-inp,
+		.z-combobox-inp, .z-bandbox-inp, .z-datebox-inp, .z-timebox-inp,
+		.z-spinner-inp, .z-doublespinner-inp{width: 150px;} .z-textbox,
+		.z-decimalbox, .z-intbox, .z-longbox, .z-doublebox{width: 85px;}
+		.z-vlayout{height: auto!important;} div.z-grid-header
+		th.z-column, div.z-grid-header th.z-auxheader{border:1px solid
+		#ccc; border-collapse: collapse; width: 48px!important;
+		white-space:initial;} .tablegrid tr.z-row td.z-row-inner,
+		tr.z-row .z-cell{border:1px solid #ccc; border-collapse:
+		collapse;} .z-label{text-align:center;}
+		.z-column-sort-img{text-align:center;} tr.z-row td.z-row-inner,
+		tr.z-row .z-cell{padding:1px;} .z-combobox-inp{width: 20px;}
+	</style>
+ 
+	<window style="background: #F7F7F7" height="1024px" xmlns:w="http://www.zkoss.org/2005/zk/client">
+		<div style="margin:auto; width:1024px">
+			<borderlayout sclass="complex-layout" height="30px">
+				<north size="90px" border="0"
+					style=" background:#F7F7F7;">
+					<a href= "admission.zul">
+						<image src="images/fortis.png" />
+					</a>
+					
+				</north>
+			</borderlayout>
+		</div>
+		<div align="center" style="margin:90px">
+			<borderlayout height="400px" width="1024px">
+
+				<center>
+
+					<borderlayout>
+
+						<north size="90px" border="0" height="8%"
+							margins="2,3,0,0" style=" background: green;">
+							<label
+								value="Nursing Progress Notes -> Hourly Chart"
+								style="background: green; font-size: 17px;background: green;margin-left: -0px;margin-top: -5px;height: 20px;padding: 10px 10px;float:left;color: #fff;" />
+						</north>
+
+						<center border="0" margins="0,3,3,3"
+							style=" overflow:auto; background:#F7F7F7">
+							<panel>
+								<panelchildren>
+									<div align="left"
+										style=" background: #F7F7F7">
+
+										<label value="Name" />
+										<space bar="false"
+											spacing="58px" />
+										<textbox id="Name">
+											<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Name: String"/>
+   		 									</DataMappings>
+   		 								</textbox>	
+										<space bar="false"
+											spacing="58px" />
+										<label value="From Birth Weight" id="from_birth" />
+										<space bar="false"
+											spacing="58px" />
+										<textbox id="diffbirthwt">
+											<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="WeightChangeFromBirth: Double"/>
+   		 									</DataMappings>
+   		 								</textbox>	
+									</div>
+
+									<div align="left"
+										style=" background: #F7F7F7">
+
+										<label value="UID" />
+										<space bar="false"
+											spacing="70px" />
+										<textbox id = "UID">
+											<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="UID: String"/>
+   		 									</DataMappings>
+   		 								</textbox>	
+										<space bar="false"
+											spacing="58px" />
+										<label value="From Yesterday Weight" id= "from_yesterday"/>
+										<space bar="false"
+											spacing="28px" />
+										<textbox id="diffyesterdaywt">
+											<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="WeightChangeFromYesterday: Double"/>
+   		 									</DataMappings>
+   		 								</textbox>
+									</div>
+
+									<div align="left"
+										style=" background: #F7F7F7">
+										<label value="Birth Wt."  />
+										<space bar="false"
+											spacing="45px" />
+										<textbox id="birthwt" xmlns:w="client" onBlur="checkbirthweight()">
+										<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="BirthWt: Double"/>
+   		 									</DataMappings>
+   		 								</textbox>		
+										<space bar="false"
+											spacing="58px" />
+										<label value="Urine" />
+										<space bar="false"
+											spacing="117px" />
+										<textbox id="urineCalculated">
+											<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Urine_ml_kg_hr: Double"/>
+   		 									</DataMappings>
+   		 								</textbox>	
+									</div>
+
+									<div align="left"
+										style=" background: #F7F7F7">
+										<label value="Yesterday Wt." />
+										<space bar="false"
+											spacing="16px" />
+										<textbox id = "yesterdaywt"  xmlns:w="client" onBlur="checkyesterdayweight()">
+										<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="YesterdayWt: Double"/>
+   		 									</DataMappings>
+   		 								</textbox>	
+									</div>
+									<div align="left"
+										style=" background: #F7F7F7">
+
+										<label value="Present Wt." />
+										<space bar="false"
+											spacing="30px" />
+										<textbox id="presentwt" xmlns:w="client"  onBlur="calculateSum()">
+											<DataMappings>
+      											<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="PresentWt: Double"/>
+   		 									</DataMappings>
+   		 								</textbox>	
+										<space bar="false"
+											spacing="58px" />
+									</div>
+
+									<div style=" background: #F7F7F7">
+										<toolbar align="center">
+											<hlayout>
+												<grid width="1024px">
+													<columns>
+														<column id = "Time" label="Time" hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Time: Integer"/>
+   		 													</DataMappings>
+														</column>
+														<column id = "MethodLabel" label= "Method" hflex="1" align="center">
+														</column>
+														<column id= "FeedTypeLabel" label="Feed Type"
+															hflex="1" align="center">
+														</column>
+														<column id= "Volume" label="Vol."
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Volume: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id= "Total" label="Total"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Total: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="IVFluidsLabel" label="I.V. Fluids"
+															hflex="1" align="center">
+														</column>
+														<column id="IV_Hr" label="I.V/Hr"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="IV_Hr: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="AA_Hr" label="AA/Hr"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="AA_Hr: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="Lipid_Hr" label="Lipid/Hr"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Lipid_Hr: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="IVTotal" label="I.V. Total"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="IVTotal: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="Aspirate_Vomit" label="Aspire/
+															Vomit (ml)"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Aspirate_Vomit: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="Urine" label="Urine (ml)"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Urine: Double"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="BOLabel" label="BO"
+															hflex="1" align="center">
+														
+														</column>
+														<column id="SaO2" label="SaO2%"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Sao2: String"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="HR" label="HR"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="HR: String"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="RR" label="RR"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="RR: String"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="BP" label="B.P"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="BP: String"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="FIO2Label" label="FIO2(%)"
+															hflex="1" align="center">
+														</column>
+														<column id="TempAxilla" label="Temp Axilla
+															(C)"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="TempAxilla: String"/>
+   		 													</DataMappings>	
+														</column>
+														<column id="TempIncBedLabel" label="Temp Inc/Bed
+															(C)"
+															hflex="1" align="center">
+														</column>
+														<column id="CPAP" label="CPAP"
+															hflex="1" align="center">
+															<DataMappings>
+      															<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="CPAP: String"/>
+   		 													</DataMappings>	
+														</column>
+
+													</columns>
+													<rows
+														sclass="narrow">
+														<row>
+															<label
+																value="9" />
+															<combobox id= "Method">
+																	<comboitem id="N/G"
+																	label="N/G" />
+																<comboitem  id="Bottle"
+																	label="Bottle" />
+																<comboitem  id="Breast"
+																	label="Breast" />
+																<DataMappings>
+      																<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="Method: String"/>
+   		 														</DataMappings>
+															</combobox>
+															<combobox id= "FeedType">
+																<comboitem id= "EBM"
+																	label="EBM" />
+																<comboitem id= "HMF"
+																	label="HMF" />
+																<comboitem id= "LBW"
+																	label="LBW" />
+																<comboitem id= "Term"
+																	label="Term" />
+																<DataMappings>
+      																<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="FeedType: String"/>
+   		 														</DataMappings>
+															</combobox>
+															<textbox  id="volume1" onBlur="volume_total()" />
+															<textbox id="volumetotal1"/>
+															<combobox id="IVFluids">
+																	<comboitem  id="5DEXTROSE"
+																	label="5% DEXTROSE" />
+																<comboitem  id="10DEXTROSE"
+																	label="10% DEXTROSE (ml/kg/day)" />
+																<comboitem  id="RINGERS"
+																	label="RINGERS'S LACTATE" />
+																<comboitem  id="ISOLYTE"
+																	label="ISOLYTE P" />
+																<DataMappings>
+      																<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="IVFluids: String"/>
+   		 														</DataMappings>	
+															</combobox>
+															<textbox
+																id="input1" onBlur="IV_total()" />
+															<textbox
+																id="input5" onBlur="IV_total()" />
+															<textbox
+																id="input9" onBlur="IV_total()" />
+															<textbox
+																id="sumvalue1" />
+															<textbox />
+															<textbox id="urine1" onBlur="urine()" />
+															<combobox id="BO">
+																<comboitem  id="Green"
+																	label="Green" />
+																<comboitem  id="Yellow"
+																	label="Yellow" />
+																<comboitem  id="White"
+																	label="White" />
+																<DataMappings>
+      																<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="BO: String"/>
+   		 														</DataMappings>	
+															</combobox>
+															<textbox />
+															<textbox />
+															<textbox />
+															<textbox />
+															<combobox id="FIO2">
+																<comboitem   id="21"
+																	label="21" />
+																<comboitem  id="22"
+																	label="22" />
+																<comboitem id="23" 
+																	label="23" />
+																<comboitem  id="24"
+																	label="24" />
+																<comboitem  id="25"
+																	label="25" />
+																<comboitem  id="26"
+																	label="26" />
+																<comboitem  id="27"
+																	label="27" />
+																<comboitem  id="28"
+																	label="28" />
+																<comboitem  id="29"
+																	label="29" />
+																<comboitem  id="30"
+																	label="30" />
+																<comboitem  id="40"
+																	label="40" />
+																<comboitem  id="50"
+																	label="50" />
+																<comboitem  id="60"
+																	label="60" />
+																<comboitem  id="70"
+																	label="70" />
+																<comboitem  id="80"
+																	label="80" />
+																<comboitem  id="90"
+																	label="90" />
+																<comboitem  id="100"
+																	label="100" />
+																<DataMappings>
+      																<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="FIO2: String"/>
+   		 														</DataMappings>	
+															</combobox>
+															<textbox />
+															<combobox id="TempIncBed">
+																<comboitem  id="30T"
+																	label="30" />
+																<comboitem  id="30.5"
+																	label="30.5" />
+																<comboitem  id="31"
+																	label="31" />
+																<comboitem  id="31.5"
+																	label="31.5" />
+																<comboitem  id="32"
+																	label="32" />
+																<comboitem  id="32.5"
+																	label="32.5" />
+																<comboitem  id="33"
+																	label="33" />
+																<comboitem  id="33.5"
+																	label="33.5" />
+																<comboitem  id="34"
+																	label="34" />
+																<comboitem  id="34.5"
+																	label="34.5" />
+																<comboitem  id="35"
+																	label="35" />
+																<comboitem  id="35.5"
+																	label="35.5" />
+																<comboitem  id="36"
+																	label="36" />
+																<comboitem  id="36.5"
+																	label="36.5" />
+																<comboitem  id="37"
+																	label="37" />
+																<comboitem  id="37.5"
+																	label="37.5" />
+																<comboitem  id="38"
+																	label="38" />
+																<comboitem  id="38.5"
+																	label="38.5" />
+																<comboitem  id="39"
+																	label="39" />
+																<comboitem  id="39.5"
+																	label="39.5" />
+																<comboitem  id="40T"
+																	label="40" />
+																<DataMappings>
+      																<Mapping datapattern="FORTIS" datatable="NURSINGPROGRESSREPORT" datafield="TempIncBed: String"/>
+   		 														</DataMappings>	
+															</combobox>
+															<textbox />
+
+														</row>
+														
+													</rows>
+
+												</grid>
+											</hlayout>
+										</toolbar>
+										<button id="Submit"  label="Submit">
+										<Events>
+     								 		<event name="OnClick"><![CDATA[invokeComponent("dbComponent","save","com.oxymedical.component.db.DBComponent","nursing_progress_notes");
+]]></event>
+    									</Events>
+    									</button>
+										<button label="Cancel"
+											onClick="" />
+
+									</div>
+								</panelchildren>
+							</panel>
+						</center>
+					</borderlayout>
+				</center>
+
+			</borderlayout>
+
+		</div>
+
+	</window>
 </zk>

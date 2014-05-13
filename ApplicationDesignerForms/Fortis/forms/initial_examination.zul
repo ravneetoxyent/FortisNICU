@@ -1,8 +1,10 @@
 <zk id="initial_examination" name="initial_examination"><window>
     <style>
     .z-row-inner{background: #F7F7F7!important;}
-.z-vlayout{height: auto!important;}
-        </style>
+	.z-vlayout{height: auto!important;}
+     </style>
+        <zscript src="/library/uilibrary.zs"/> 
+        <?page id="initial_examination"?>
     <div>
         <borderlayout sclass="complex-layout" height="810px">
             <north size="90px" border="0" style=" background:none;">
@@ -132,7 +134,7 @@
                                                     label="Doctor Examining" />
                                                     <combobox id = "doctorExamining"> 	
                                        					<comboitem id= "D1" label="D1"/>
-                                                    	<comboitem id= "D2" label="D2"/>>
+                                                    	<comboitem id= "D2" label="D2"/>
                                                     	<DataMappings>
       														<Mapping datapattern="FORTIS" datatable="INITIALEXAMINATION" datafield="DOCTOR_EXAMINING: String"/>
    		 												</DataMappings>

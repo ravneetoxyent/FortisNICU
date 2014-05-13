@@ -1,26 +1,46 @@
-<zk id="initial_examination" name="initial_examination"><window>
+<zk id="initial_examination" name="initial_examination">
+<window>
     <style>
-    .z-row-inner{background: #F7F7F7!important;}
+    body{background: #f0f0f0;}
+    .z-panel-tr,.z-panel-tl,.z-panel-hl,.z-panel-hr,.z-panel-children,.z-panel-hm{background: none; border: none;}
+    .sub_menu{margin-left: 10px; border-left: 4px solid #CCC; padding-left: 10px;}
+    .z-toolbarbutton-cnt{background: none!important; background-image:none!important; outline: none!important;}
+    .sub_menu:hover{border-left: 4px solid green; padding-left: 10px; margin-left: 10px; border-right:none; border-top:none; border-bottom:none;}
+    .z-center,.z-east{border:none;}
+    .z-panel-hm .z-panel-header, .z-panel-header{font-size:13px; font-weight: bold; color:#6297BC}
+    .z-toolbar{background: #f0f0f0!important; border:none!important;}
+    tr.z-grid-odd td.z-row-inner, tr.z-grid-odd .z-cell{border:none; background:none; background-color: none;}
+    tr.z-grid-odd td.z-row-inner, tr.z-grid-odd .z-cell, tr.z-grid-odd{border:none; background:none; background-color: none;}
+    tr.z-row td.z-row-inner, tr.z-row .z-cell{border:none; background: #f0f0f0;}
+    .z-combobox-rounded-inp, .z-bandbox-rounded-inp, .z-datebox-rounded-inp, .z-timebox-rounded-inp, .z-spinner-rounded-inp, .z-doublespinner-rounded-inp, .z-combobox-inp, .z-bandbox-inp, .z-datebox-inp, .z-timebox-inp, .z-spinner-inp, .z-doublespinner-inp{width: 150px;}
+    .z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox{width: 85px;}
 .z-vlayout{height: auto!important;}
+div.z-grid-header th.z-column, div.z-grid-header th.z-auxheader{border:1px solid #ccc; border-collapse: collapse;}
+.tablegrid tr.z-row td.z-row-inner, tr.z-row .z-cell{border:1px solid #ccc; border-collapse: collapse;}
+.z-separator-ver-bar{background: none;}
+table{table-layout:initial!important;}
+.z-a{text-decoration:none; color:#333;}
+.z-a:visited{text-decoration:none; color:#333;}
+.active{color: green; border-left: 4px solid green; padding-left: 10px; margin-left: 10px; border-right:none; border-top:none; border-bottom:none;}
+
         </style>
-        <zscript src="/library/uilibrary.zs"/>
+         <zscript src="/library/uilibrary.zs"/> 
         <?page id="initial_examination"?>
-    <div>
+    <div style="width: 1024px; margin:auto;">
         <borderlayout sclass="complex-layout" height="810px">
             <north size="90px" border="0" style=" background:none;">
             <image src="images/fortis.png"/>
             </north>
             <!-- Sidebar -->
-            <west width="200px" border="0" flex="true"
-                margins="0,5,0,0" style="max-height: 1000px; background:none; overflow:auto; ">
+            <west width="23%" border="0" flex="true" margins="0,5,0,0" style="background:none;">
 
                 <vlayout spacing="0" style="height: auto;">
                     <panel width="100%" border="normal" title="Admission And Examination" >
                         <panelchildren style="padding:5px;">
                         
                             <vbox>
-                                <toolbarbutton label="Admission Form" />
-                                <toolbarbutton label="Initial Examination" />
+                                <a href="admission.zul"><label value="Admission Form" class="sub_menu"/></a>
+                                <a href="initial_examination.zul"><label value="Initial Examination" class="sub_menu active"/></a>
                             </vbox>
                             
                         </panelchildren>
@@ -29,7 +49,7 @@
                         title="Nursing Progress Notes ">
                         <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Nursing Progress Notes " />
+                                <a href="nursing_progress_notes.zul"><label value="Nursing Progress Notes" class="sub_menu"/></a>
                             </vbox>
                         </panelchildren>
                     </panel>
@@ -37,8 +57,8 @@
                         title="Doctor's Progress Notes">
                         <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Doctor's Progress Notes " />
-                                 <toolbarbutton label="Growth Chart " />
+                                <label value="Doctor's Progress Notes " class="sub_menu"/>
+                                <a href="growth_chart_new.zul"><label value="Growth Chart " class="sub_menu"/></a>
                             </vbox>
                         </panelchildren>
                     </panel>
@@ -46,8 +66,8 @@
                         title="Medication">
                         <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Doctor's Prescription" />
-                                <toolbarbutton label="Nurse Administration" />
+                                <label value="Doctor's Prescription" class="sub_menu"/>
+                                <label value="Nurse Administration" class="sub_menu"/>
                             </vbox>
                         </panelchildren>
                     </panel>
@@ -55,7 +75,7 @@
                         title="Blood Gas Tests">
                         <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Blood Gas Tests" />
+                                <label value="Blood Gas Tests" class="sub_menu"/>
                                
                             </vbox>
                         </panelchildren>
@@ -64,8 +84,8 @@
                         title="Blood Test's">
                         <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Basic " />
-                                 <toolbarbutton label="Specialised " />
+                                <label value="Basic " class="sub_menu"/>
+                                 <label value="Specialised " class="sub_menu"/>
                             </vbox>
                         </panelchildren>
                     </panel>
@@ -73,7 +93,7 @@
                         title="Screening Tests">
                        <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Screening Tests" />
+                                <label value="Screening Tests" class="sub_menu"/>
                                  
                             </vbox>
                         </panelchildren>
@@ -82,8 +102,8 @@
                         title="Ultrasound">
                        <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Cranial" />
-                                <toolbarbutton label="Abdomen" />
+                                <label value="Cranial" class="sub_menu"/>
+                                <label value="Abdomen" class="sub_menu"/>
                                  
                             </vbox>
                         </panelchildren>
@@ -92,7 +112,7 @@
                         title="Xray">
                          <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Xray" />
+                                <label value="Xray" class="sub_menu"/>
 
                             </vbox>
                         </panelchildren>
@@ -101,7 +121,7 @@
                         title="Discharge Summary">
                         <panelchildren style="padding:5px;">
                             <vbox>
-                                <toolbarbutton label="Discharge Summary" />
+                                <label value="Discharge Summary" class="sub_menu"/>
 
                             </vbox>
                         </panelchildren>
@@ -119,7 +139,7 @@
             <center>
                 <borderlayout sclass="inner-border">
                     <north size="90px" border="0" height="4%" margins="2,3,0,0" style=" background: green;">
-                        <label value="Initial Examination"  style="font-size:20px; background: green; padding-left: 10px;" />
+                        <label value="Initial Examination"  style="font-size:17px; color: #fff; background: green; padding-left: 10px;" />
                     </north>
                     <center border="0" margins="0,3,3,3" style=" background: none; overflow:auto;">
                     
@@ -130,8 +150,8 @@
                                         <row>
                                             <div style=" background: none;">
                                            
-                                                <toolbarbutton
-                                                    label="Doctor Examining" />
+                                                <label
+                                                    value="Doctor Examining" />
                                                     <combobox id = "doctorExamining">                                    	
                                                     	<comboitem id= "D1" label="D1"/>
                                                     	<comboitem id= "D2" label="D2"/>
@@ -142,102 +162,103 @@
                                         <row>
                                             <div>
                                                      
-                                                <toolbarbutton id="date"
-                                                    label="Date" />
+                                                <label id="date"
+                                                    value="Date" />
                                                     <space bar="true" spacing="65px" />
                                                     <datebox id= "dateBox" />
                                                     
                                                     <space bar="true" spacing="65px" />
-                                                    <toolbarbutton id="Time"
-                                                    label="Time" />
+                                                    <label id="Time"
+                                                    value="Time" />
                                                     <timebox  id = "timeBox"/>
                                             </div>
                                         </row>
                                         <row>
                                             <div>
                                             
-                                                <toolbarbutton label="Birth Weight" />
+                                                <label value="Birth Weight" />
                                                     <space bar="true" spacing="24px" />
                                                 	<doublebox id= "birthWeightBox"/>
                                                 	<doublebox id= "birthCentileBox" />
-                                                 <toolbarbutton label="OFC" />
+                                                     <space bar="false" spacing="65px" />                                                	
+                                                 <label value="OFC" />
                                                     <doublebox id="ofcBox"/>
                                                     <doublebox id= "centileOFCBox"/>
                                             </div>
                                         </row>
                                         <row>
                                             <div>
-                                            <space bar="true" spacing="280px" />
-                                                <toolbarbutton  label="Temp" />
+                                            <space bar="true" spacing="335px" />
+                                                <label value="Temp" />
                                                     <doublebox id= "tempBox"/>  
                                             </div>
                                         </row>   
                                     </rows>
                                 </grid>
         
-              
+         <toolbar align="center" >                   
          <hlayout>
-              <grid width="400px">         
+              <grid width="350px" class="tablegrid">         
              <columns>
             <column hflex="1"></column>
-            <column hflex="1">Left</column>
-            <column hflex="1">Right</column>
+            <column hflex="1" align="center">Left</column>
+            <column hflex="1" align="center">Right</column>
            
         </columns>
         <rows sclass="narrow">
-            <row>
+            <row align="left">
             	<label id = "EyeReflex" value="Eyes_Red_Reflex" />
-               	<radiogroup id ="EYE_RG">
-					 <radio id = "LeftEye" value="L" />
-                	 <radio id = "RightEye" value= "R"/>
+               <radiogroup id ="EYE_RG" style="width: 245px; float:left;">
+					<radio id = "LeftEye" value="L" style="float:left; padding-left: 65px; padding-right: 50px;"/>
+                	 <radio id = "RightEye" value="R"/>
                 </radiogroup>
                 </row>
-                 <row>
+                 <row align="left">
                 <label id = "Ears" value="Ears" />
-                 <radiogroup id ="Ear_RG" >
-                	<radio id = "LeftEar"  value= "L"/>
-                	<radio id = "RightEar" value= "R" />
+                 <radiogroup id ="Ear_RG"  style="width: 245px; float:left;">
+                	<radio id = "LeftEar" value= "L" style="float:left; padding-left: 65px; padding-right: 50px;" />
+                	<radio id = "RightEar" value= "R"  />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id="Hands" value="Hands" />
-               <radiogroup id ="Hands_RG" >
-                	<radio id = "LeftHands" value= "L" />
+               <radiogroup id ="Hands_RG" style="width: 245px; float:left;">
+                	<radio id = "LeftHands"  value= "L" style="float:left; padding-left: 65px; padding-right: 50px;"/>
                 	<radio id = "RightHands" value= "R" /> 
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id = "Upper_limbs" value="Upper limbs" />
-                 <radiogroup id ="Upper_limbs_RG" >
-                	<radio id = "LeftUpperLimbs" value= "L" />
-                	<radio id = "RightUpperLimbs" value= "R"  />
+                 <radiogroup id ="Upper_limbs_RG" style="width: 245px; float:left;">
+                	<radio id = "LeftUpperLimbs" value= "L"  style="float:left; padding-left: 65px; padding-right: 50px;"/>
+                	<radio id = "RightUpperLimbs" value= "R" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id = "Testis" value="Testis" />
-                 <radiogroup id ="Testis_RG" >
-                	<radio value = "LeftTestis" value= "L" />
-                	<radio value = "RightTestis" value= "R" />
+                 <radiogroup id ="Testis_RG" style="width: 245px; float:left;">
+                	<radio id = "LeftTestis" value= "L" style="float:left; padding-left: 65px; padding-right: 50px;"/>
+                	<radio id = "RightTestis" value= "R" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id = "Hips" value="Hips" />
-                <radiogroup id ="Hips_RG" >
-                	<radio id = "LeftHips"  value= "L"/>
-                	<radio id = "RightHips" value= "R" />
+                <radiogroup id ="Hips_RG" style="width: 245px; float:left;">
+                	<radio id = "LeftHips" value= "L" style="float:left; padding-left: 65px; padding-right: 50px;"/>
+                	<radio id = "RightHips" value= "R"  />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Legs" value="Legs" />
-                 <radiogroup id ="Legs_RG" >
-                	<radio id = "LeftLegs"  value= "L"/>
+                 <radiogroup id ="Legs_RG" style="width: 245px; float:left;">
+                	<radio id = "LeftLegs" value= "L" style="float:left; padding-left: 65px; padding-right: 50px;" />
                 	<radio id = "RightLegs" value= "R" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Feet" value="Feet" />
-                 <radiogroup id ="Feet_RG" >
-                	<radio id = "LeftFeet" value= "L" />
+                 <radiogroup id ="Feet_RG" style="width: 245px; float:left;">
+                	<radio id = "LeftFeet" value= "L" style="float:left; padding-left: 65px; padding-right: 50px;" />
                 	<radio id = "RightFeet" value= "R" />
                 </radiogroup>
             </row>
@@ -245,76 +266,74 @@
                 </grid>
                 
                 
-                <grid width="400px" >            
+                <grid width="350px" class="tablegrid">            
              <columns>
             <column hflex="1"></column>
-            <column hflex="1">Normal</column>
-            <column hflex="1">Abnormal</column>
+            <column hflex="1" align="center">Normal</column>
+            <column hflex="1" align="center">Abnormal</column>
         </columns>
         <rows>
-            <row>
+            <row align="left">
                 <label id ="Palate" value="Palate" />
-                 <radiogroup id ="Palate_RG" >
-                	<radio id = "NormalPalate" value= "L" />
-                	<radio id = "AbnormalPalate" value= "R" />
+                 <radiogroup id ="Palate_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalPalate" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalPalate" value= "A" />
                 </radiogroup>
-                <radio />
                 </row>
-                 <row>
+                 <row align="left">
                 <label id ="Tone" value="Tone" />
-       			 <radiogroup id ="Tone_RG" >
-                	<radio id = "NormalTone" value= "L" />
-                	<radio id = "AbnormalTone" value= "R"/>
+       			 <radiogroup id ="Tone_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalTone" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalTone" value= "A" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Mouth" value="Mouth" />
-                 <radiogroup id ="Mouth_RG" >
-                	<radio id = "NormalMouth"  value= "L"/>
-                	<radio id = "AbnormalMouth" value= "R" />
+                 <radiogroup id ="Mouth_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalMouth" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalMouth" value= "A" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Heart" value="Heart" />
-                  <radiogroup id ="Heart_RG" >
-                	<radio id = "NormalHeart" value= "L" />
-                	<radio id = "AbnormalHeart" value= "R" />
+                  <radiogroup id ="Heart_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalHeart" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalHeart"  value= "A" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Liver" value="Liver" />
-                  <radiogroup id ="Liver_RG" >
-                	<radio id = "NormalLiver" value= "L" />
-                	<radio id = "AbnormalLiver"  value= "R"/>
+                  <radiogroup id ="Liver_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalLiver" value= "N"  style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalLiver" value= "A"/>
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Spleen" value="Spleen" />
-                 <radiogroup id ="Spleen_RG" >
-                	<radio id = "NormalSpleen" value= "L" />
-                	<radio id = "AbnormalSpleen" value= "R" />
+                 <radiogroup id ="Spleen_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalSpleen" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalSpleen" value= "A"  />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Genitalia" value="Genitalia" />
-                  <radiogroup id ="Genitalia_RG" >
-                	<radio id = "NormalGenitalia"  value= "L"/>
-                	<radio id = "AbnormalGenitalia" value= "R"  />
+                  <radiogroup id ="Genitalia_RG" style="width: 284px; float:left;">
+                	<radio id = "NormalGenitalia" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalGenitalia" value= "A" />
                 </radiogroup>
             </row>
-            <row>
+            <row align="left">
                 <label id ="Spine" value="Spine" />
-                  <radiogroup id ="Spine_RG" >
-                    	<radio id = "NormalSpine" value= "L" />
-                	<radio id = "AbnormalSpine"  value= "R"/>
+                  <radiogroup id ="Spine_RG" style="width: 284px; float:left;">
+                    	<radio id = "NormalSpine" value= "N" style="float:left; padding-left: 106px; padding-right: 50px;" />
+                	<radio id = "AbnormalSpine" value= "A" />
                 </radiogroup>
             </row>
                 </rows>
-                
                 </grid>
               
       </hlayout>
-                          
+         </toolbar>                 
                  <grid style="border:0">
                <rows>
                 <row>
