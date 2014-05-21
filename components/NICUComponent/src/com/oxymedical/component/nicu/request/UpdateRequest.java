@@ -9,7 +9,8 @@ public class UpdateRequest extends Thread {
 		{
 			try 
 			{
-				Thread.sleep(36000);
+				Thread.sleep(30);
+				System.out.println("Inside Update Request Thread of NICU Component");
 			} 
 			catch (InterruptedException e) 
 			{
