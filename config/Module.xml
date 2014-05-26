@@ -59,6 +59,25 @@
 	
 		    <maintenance>
 		    </maintenance>
+		    <module
+			name="NICU Component"
+			id="nicuComponent"
+			version="1.0"
+			provider-name="Oxyent"
+			class="com.oxymedical.component.nicu.NICUComponent">
+	
+	 		<requires>
+			<import module="org.eclipse.core.resources"/>
+			<import module="org.eclipse.ui"/>
+		    </requires>
+	
+		    <runtime>
+			<library name="testworld.jar"/>	
+		    </runtime>
+	
+		    <maintenance>
+		    </maintenance>
+		</module>			
 		</module>		
 	</modulelist>
 </container>
